@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIM Card Shop</title>
+<title data-ru="Магазин SIM-карт" data-uz="SIM-karta Do'koni" data-tj="Мағозаи SIM-картаҳо">SIM Card Shop</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#6200EA',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<link rel="icon" href="">
 <link rel="stylesheet" href="./main.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
@@ -40,6 +41,57 @@ body {
 padding-top: 64px;
 padding-bottom: 64px;
 }
+
+
+.button{
+    margin-right: 0px;
+    
+}
+
+.ru{
+ 
+    margin-right: 10px;
+    
+    width: 30px;
+    border-radius: 4px;
+     background-color: #d32b33;
+     color: rgb(255, 255, 255);
+}
+.ru:hover{
+
+    background-color: #a00000;
+    color: aliceblue;
+}
+
+ 
+ .uz{
+    margin-right: 14px;
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 4px;
+    width: 28px;
+ }
+ .uz:hover{
+    background-color: #00178a;
+ }
+
+
+ .tj{
+   background-color: rgb(83, 184, 25);
+   color: aliceblue;
+   width: 30px;
+   border-radius: 4px;
+
+ }
+ .tj:hover{
+    background-color: #009a0d;
+ }
+
+ .button:hover .ru:checked ~ .custom-Ru{
+    background-color: #433b1c;
+ }
+
+
 </style>
 </head>
 <body class="bg-gray-50">
@@ -50,14 +102,18 @@ padding-bottom: 64px;
 <div class="w-10 h-10 flex items-center justify-center mr-2 logo-animation">
 <span class="font-['Pacifico'] text-primary text-2xl">sim-card</span>
 </div>
-<h1 class="text-lg font-semibold">SimConnect</h1>
+<h1 class="text-lg font-semibold" data-ru="SimConnect" data-uz="SimConnect" data-tj="SimConnect">SimConnect</h1>
 </div>
 <div class="flex items-center">
 <div class="flex mr-4">
-<button class="px-2 text-sm font-medium">s</button>
-<button class="px-2 text-sm font-medium">i</button>
-<button class="px-2 text-sm font-medium">m</button>
-</div>
+<div class="contaner">
+<div class="button">
+              <button class="ru" onclick="setLanguage('ru') ">Ru</button>
+              <button class="uz" onclick="setLanguage('uz')">Uz</button>
+              <button  class="tj" onclick="setLanguage('tj')">TJ</button>
+          </div>
+        </div>
+      </div>
 <div class="flex items-center">
 <button class="w-8 h-8 flex items-center justify-center mr-2 cursor-pointer">
 <i class="ri-shopping-cart-line ri-lg"></i>
@@ -73,56 +129,37 @@ padding-bottom: 64px;
 <!---Hero section-->
 <section class="mt-4 px-4">
 <div class="relative w-full h-48 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=3D%20SIM%20card%20visualization%20with%20colorful%20telecom%20branding%2C%20modern%20digital%20design%2C%20vibrant%20colors%2C%20floating%20in%20space%2C%20high-tech%2C%20professional%20product%20photography%2C%20clean%20background%2C%20centered%20composition&width=800&height=400&seq=1&orientation=landscape" alt="SIM Card Offers" class="w-full h-full object-cover object-top">
+<img src="./img/475752c9682f67b80bbc30baa649bfea (1).jpg" alt="SIM Card Offers" class="w-full h-full object-cover object-top">
 <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
 <div class="text-center text-white">
-<h2 class="text-2xl font-bold mb-2">Premium SIM Cards</h2>
-<p class="text-sm mb-3">Find the perfect plan for your needs</p>
+<h2 class="text-2xl font-bold mb-2" data-ru="Премиум SIM-карты" data-uz="Premium SIM-kartalar" data-tj="SIM-картаҳои премиум">Premium SIM Cards</h2>
+<p class="text-sm mb-3" data-ru="Найдите идеальный тариф для ваших нужд" data-uz="Ehtiyojingiz uchun mukammal tarifni toping" data-tj="Барои ниёзҳои худ нақшаи комилро пайдо кунед">Find the perfect plan for your needs</p>
 <button class="bg-primary text-white px-4 py-2 !rounded-button cursor-pointer">
-Browse Plans
+<span data-ru="Смотреть тарифы" data-uz="Tariflarni ko'rish" data-tj="Дидани тарифҳо">Browse Plans</span>
 </button>
 </div>
 </div>
 </div>
 </section>
 
-
-
-<!--dizin-->
-<section>
-    <div class="contaner">
-
-        <div class="dizin">
-       
-</div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
 <!-- User Stories Section -->
- 
 <section class="mt-6 px-4">
 <div class="flex items-center justify-between mb-4">
-<h2 class="text-lg font-semibold">Customer Stories</h2>
-<button class="text-primary text-sm font-medium cursor-pointer">Share Yours</button>
+<h2 class="text-lg font-semibold" data-ru="Истории клиентов" data-uz="Mijollar hikoyalari" data-tj="Қиссаҳои муштариён">Customer Stories</h2>
+<button class="text-primary text-sm font-medium cursor-pointer" data-ru="Поделиться своей" data-uz="O'z hikoyangizni ulashing" data-tj="Қиссаи худро мубодила кунед">Share Yours</button>
 </div>
 <div class="story-container flex overflow-x-auto pb-2 -mx-1 scrollbar-hide">
-<!-- Story 1 -->
+        <!--
+<!-- Story 1 
 <div class="flex-none w-20 mx-1">
 <div class="relative">
 <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1">
 <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20businessman%20in%20a%20suit%2C%20smiling%2C%20high%20quality%20portrait%2C%20professional%20photography%2C%20soft%20lighting%2C%20clean%20background&width=100&height=100&seq=2&orientation=squarish" alt="User Story" class="w-full h-full object-cover rounded-full">
 </div>
-<p class="text-xs text-center truncate">info</p>
+<p class="text-xs text-center truncate" data-ru="Инфо" data-uz="Ma'lumot" data-tj="Маълумот">info</p>
 </div>
 </div>
-<!-- Story 2 -->
+<!-- Story 2
 <div class="flex-none w-20 mx-1">
 <div class="relative">
 <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-300 p-0.5 mb-1">
@@ -131,7 +168,7 @@ Browse Plans
 <p class="text-xs text-center truncate">Sarah K.</p>
 </div>
 </div>
-<!-- Story 3 -->
+<!-- Story 3 
 <div class="flex-none w-20 mx-1">
 <div class="relative">
 <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-300 p-0.5 mb-1">
@@ -140,7 +177,7 @@ Browse Plans
 <p class="text-xs text-center truncate">Mei L.</p>
 </div>
 </div>
-<!-- Story 4 -->
+<!-- Story 4 
 <div class="flex-none w-20 mx-1">
 <div class="relative">
 <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-300 p-0.5 mb-1">
@@ -149,6 +186,7 @@ Browse Plans
 <p class="text-xs text-center truncate">David R.</p>
 </div>
 </div>
+-->
 <!-- Story 5 -->
 <div class="flex-none w-20 mx-1">
 <div class="relative">
@@ -167,7 +205,8 @@ Browse Plans
 <i class="ri-add-line ri-lg text-gray-500"></i>
 </div>
 </div>
-<p class="text-xs text-center truncate">Adddd Story</p>
+<p class="text-xs text-center truncate" data-ru="Добавить" data-uz="Qo'shish" data-tj="Илова кардан">Add Story</p>
+</div>
 </div>
 </div>
 </section>
@@ -175,8 +214,8 @@ Browse Plans
 <!-- Operator Collections -->
 <section class="mt-6 px-4">
 <div class="flex items-center justify-between mb-4">
-<h2 class="text-lg font-semibold">Premium Numbers</h2>
-<button class="text-primary text-sm font-medium cursor-pointer">View All</button>
+<h2 class="text-lg font-semibold" data-ru="Премиум номера" data-uz="Premium raqamlar" data-tj="Рақамҳои премиум">Premium Numbers</h2>
+<button class="text-primary text-sm font-medium cursor-pointer" data-ru="Посмотреть все" data-uz="Hammasini ko'rish" data-tj="Ҳамаро дидан">View All</button>
 </div>
 <div class="flex flex-col gap-3">
 <!-- Tele2 Card -->
@@ -188,22 +227,21 @@ Browse Plans
 </div>
 <div>
 <h3 class="font-medium">Tele2</h3>
-<p class="text-xs text-gray-500">Gold Number</p>
+<p class="text-xs text-gray-500" data-ru="Золотой номер" data-uz="Oltin raqam" data-tj="Рақами тилоӣ">Gold Number</p>
 </div>
 </div>
 <span class="text-sm font-bold text-black">$24.99</span>
 </div>
 <div class="bg-gray-50 rounded-lg p-3 mb-3">
-<p class="text-xl font-bold text-center">+7 (999) 777-8888 <br>нет</p>
+<p class="text-xl font-bold text-center">+7 (999) 777-8888 <br><span data-ru="нет" data-uz="yo'q" data-tj="не">нет</span></p>
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600">Gold Series</span>
+<span class="text-xs text-gray-600" data-ru="Золотая серия" data-uz="Oltin seriya" data-tj="Силсилаи тилоӣ">Gold Series</span>
 </div>
 <button class="bg-black text-white px-4 py-2 !rounded-button cursor-pointer">
-    <a href="./index1.html" class="addcart">Add to Cart</a>
-
+<a href="./index1.html" class="addcart" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Add to Cart</a>
 </button>
 </div>
 </div>
@@ -217,7 +255,7 @@ Browse Plans
 </div>
 <div>
 <h3 class="font-medium">Beeline</h3>
-<p class="text-xs text-gray-500">Silver Number</p>
+<p class="text-xs text-gray-500" data-ru="Серебряный номер" data-uz="Kumush raqam" data-tj="Рақами нуқра">Silver Number</p>
 </div>
 </div>
 <span class="text-sm font-bold text-[#FFCC00]">$19.99</span>
@@ -228,11 +266,10 @@ Browse Plans
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600">Silver Series</span>
+<span class="text-xs text-gray-600" data-ru="Серебряная серия" data-uz="Kumush seriya" data-tj="Силсилаи нуқра">Silver Series</span>
 </div>
 <button class="bg-[#FFCC00] text-black px-4 py-2 !rounded-button cursor-pointer">
-
-     <a href="./index1.html">КУПИТ</a>
+<a href="./index1.html" data-ru="В корзина" data-uz="Savatga" data-tj="Ба корзина">КУПИТ</a>
 </button>
 </div>
 </div>
@@ -246,7 +283,7 @@ Browse Plans
 </div>
 <div>
 <h3 class="font-medium">Yota</h3>
-<p class="text-xs text-gray-500">Premium Number</p>
+<p class="text-xs text-gray-500" data-ru="Премиум номер" data-uz="Premium raqam" data-tj="Рақами премиум">Premium Number</p>
 </div>
 </div>
 <span class="text-sm font-bold text-[#0077FF]">$29.99</span>
@@ -257,11 +294,10 @@ Browse Plans
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600">VIP Number</span>
+<span class="text-xs text-gray-600" data-ru="VIP номер" data-uz="VIP raqam" data-tj="Рақами VIP">VIP Number</span>
 </div>
 <button class="bg-[#0077FF] text-white px-4 py-2 !rounded-button cursor-pointer">
-                <a href="./index1.html">КУПИТ</a>
-            
+<a href="./index1.html" data-ru="В корзину" data-uz="Savatga " data-tj="Ба корзина">КУПИТ</a>
 </button>
 </div>
 </div>
@@ -275,7 +311,7 @@ Browse Plans
 </div>
 <div>
 <h3 class="font-medium">MTS</h3>
-<p class="text-xs text-gray-500">Premium Number</p>
+<p class="text-xs text-gray-500" data-ru="Премиум номер" data-uz="Premium raqam" data-tj="Рақами премиум">Premium Number</p>
 </div>
 </div>
 <span class="text-sm font-bold text-[#E30611]">$27.99</span>
@@ -286,13 +322,15 @@ Browse Plans
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600">Lucky Number</span>
+<span class="text-xs text-gray-600" data-ru="Счастливый номер" data-uz="Baxtli raqam" data-tj="Рақами хушбахт">Lucky Number</span>
 </div>
-<button class="bg-[#E30611] text-white px-4 py-2 !rounded-button cursor-pointer">
-Add to Cart
+<button class="bg-[#E30611] text-white px-4 py-2 !rounded-button cursor-pointer" >
+    <a href="index1.html" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">></a>
+
 </button>
 </div>
 </div>
+
 <!-- Megafon Card -->
 <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
 <div class="flex items-center justify-between mb-3">
@@ -302,7 +340,7 @@ Add to Cart
 </div>
 <div>
 <h3 class="font-medium">Megafon</h3>
-<p class="text-xs text-gray-500">Business Number</p>
+<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
 </div>
 </div>
 <span class="text-sm font-bold text-[#00B956]">$25.99</span>
@@ -313,28 +351,35 @@ Add to Cart
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600">Business Series</span>
+<span class="text-xs text-gray-600" data-ru="Бизнес серия" data-uz="Biznes seriya" data-tj="Силсилаи тиҷорат">Business Series</span>
 </div>
 <button class="bg-[#00B956] text-white px-4 py-2 !rounded-button cursor-pointer">
-Add to Cart
+    <a href="./index1.html" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина"></a>
+
 </button>
 </div>
 </div>
 </div>
-<div class="flex items-center mb-2">
+
+      <!-- yotea -->
+   <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
+    <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-[#0077FF]/10 rounded-full mr-2">
 <i class="ri-sim-card-line text-[#0077FF]"></i>
 </div>
 <h3 class="font-medium">Yota</h3>
 </div>
-<p class="text-xs text-gray-600 mb-2">Unlimited data, flexible plans</p>
+<p class="text-xs text-gray-600 mb-2" data-ru="Неограниченное количество данных, гибкие тарифные планы" data-uz="Cheksiz ma'lumotlar, moslashuvchan ma'lumotlar rejalari" data-tj="Маълумоти номаҳдуд, нақшаҳои тағйирпазир">Unlimited data, flexible plans</p>
 <div class="flex justify-between items-center">
 <span class="text-sm font-bold">$12.99/mo</span>
-<button class="bg-[#0077FF] text-white text-xs px-2 py-1 !rounded-button cursor-pointer">
-Add to Cart
+<button class="bg-[#0077FF] text-white text-xs px-2 py-1 !rounded-button cursor-pointer"  data-ru="В корзина"  data-uz="savatga " data-tj="Харидан"></a></a>
+     
+
 </button>
 </div>
 </div>
+
+
 <!-- Tele2 Card -->
 <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
 <div class="flex items-center mb-2">
@@ -343,15 +388,16 @@ Add to Cart
 </div>
 <h3 class="font-medium">Tele2</h3>
 </div>
-<p class="text-xs text-gray-600 mb-2">Budget-friendly with great coverage</p>
+<p class="text-xs text-gray-600 mb-2" data-ru="Бюджетный вариант с большим охватом " data-uz="Katta qamrovli byudjetga mos" data-tj="Аз ҷиҳати буҷет бо фарогирии бузург">Budget-friendly with great coverage</p>
 <div class="flex justify-between items-center">
 <span class="text-sm font-bold">$9.99/mo</span>
-<button class="bg-black text-white text-xs px-2 py-1 !rounded-button cursor-pointer">
+<button class="bg-black text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="добыть в корзине." data-uz="savatga" data-tj="Харидан" >
 Add to Cart
 </button>
 </div>
 </div>
-<!-- Beeline Card -->
+      <!-- bilene -->
+    <!-- Beeline Card -->
 <div class="operator-card beeline-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
 <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-[#FFCC00]/10 rounded-full mr-2">
@@ -359,15 +405,16 @@ Add to Cart
 </div>
 <h3 class="font-medium">Beeline</h3>
 </div>
-<p class="text-xs text-gray-600 mb-2">Family plans with shared data</p>
+<p class="text-xs text-gray-600 mb-2" data-ru="Семейные планы с общими данными" data-uz="Umumiy maʼlumotlarga ega oilaviy rejalar" data-tj="Нақшаҳои оилавӣ бо маълумоти муштарак">Family plans with shared data</p>
 <div class="flex justify-between items-center">
 <span class="text-sm font-bold">$14.99/mo</span>
-<button class="bg-[#FFCC00] text-black text-xs px-2 py-1 !rounded-button cursor-pointer">
+<button class="bg-[#FFCC00] text-black text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="добыть в корзине." data-uz="savatga" data-tj="Харидан">
 Add to Cart
 </button>
 </div>
 </div>
-<!-- MTS Card -->
+
+       <!-- MTS Card -->
 <div class="operator-card mts-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
 <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-[#E30611]/10 rounded-full mr-2">
@@ -375,15 +422,16 @@ Add to Cart
 </div>
 <h3 class="font-medium">MTS</h3>
 </div>
-<p class="text-xs text-gray-600 mb-2">Premium service with global roaming</p>
+<p class="text-xs text-gray-600 mb-2" data-ru="Премиум-сервис с глобальным роумингом" data-uz="Global rouming bilan premium xizmat" data-tj="Хизматрасонии премиум бо роуминги ҷаҳонӣ">Premium service with global roaming</p>
 <div class="flex justify-between items-center">
 <span class="text-sm font-bold">$16.99/mo</span>
-<button class="bg-[#E30611] text-white text-xs px-2 py-1 !rounded-button cursor-pointer">
+<button class="bg-[#E30611] text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="дабыть в корзине" data-uz="savatga" data-tj="Харидан">
 Add to Cart
 </button>
 </div>
 </div>
-<!-- Megafon Card -->
+
+    <!-- Megafon Card -->
 <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
 <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-[#00B956]/10 rounded-full mr-2">
@@ -391,33 +439,33 @@ Add to Cart
 </div>
 <h3 class="font-medium">Megafon</h3>
 </div>
-<p class="text-xs text-gray-600 mb-2">Fast 5G network with bonuses</p>
+<p class="text-xs text-gray-600 mb-2" data-ru="Быстрая сеть 5G с бонусами" data-uz="Bonuslar bilan tezkor 5G tarmog'i" data-tj="Шабакаи 5G зуд бо бонусҳо">Fast 5G network with bonuses</p>
 <div class="flex justify-between items-center">
 <span class="text-sm font-bold">$15.99/mo</span>
-<button class="bg-[#00B956] text-white text-xs px-2 py-1 !rounded-button cursor-pointer">
+<button class="bg-[#00B956] text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru=" дабыть в корзине" data-uz="Savatga" data-tj="Харидан">
 Add to Cart
 </button>
 </div>
 </div>
+     
 <!-- Special Offer Card -->
 <div class="operator-card bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg shadow-sm p-3 cursor-pointer">
 <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-white/80 rounded-full mr-2">
-    <a href="#"></a>
 <i class="ri-gift-line text-primary"></i>
 </div>
-<h3 class="font-medium">Special Offer</h3>
+<h3 class="font-medium" data-ru="Спецпредложение" data-uz="Maxsus taklif" data-tj="Пешниҳоди махсус">Special Offer</h3>
 </div>
-<p class="text-xs text-gray-700 mb-2">Limited time: 50% off first 3 months</p>
+<p class="text-xs text-gray-700 mb-2" data-ru="Ограниченное время: скидка 50% первые 3 месяца" data-uz="Cheklangan vaqt: dastlabki 3 oy uchun 50% chegirma" data-tj="Мӯҳлати маҳдуд: 50% тахфиф барои 3 моҳи аввал">Limited time: 50% off first 3 months</p>
 <div class="flex justify-between items-center">
-<span class="text-sm font-bold">From $7.99/mo</span>
-<button class="bg-primary text-white text-xs px-2 py-1 !rounded-button cursor-pointer">
+<span class="text-sm font-bold" data-ru="От $7.99/мес" data-uz="$7.99/oydan boshlab" data-tj="Аз $7.99/моҳ">From $7.99/mo</span>
+<button class="bg-primary text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="Посмотреть" data-uz="Ko'rish" data-tj="Дидан">
 View Deals
 </button>
 </div>
 </div>
-</div>
 </section>
+
 
 
 <!-- Featured Story -->
@@ -426,10 +474,10 @@ View Deals
 <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20businessman%20in%20a%20suit%2C%20smiling%2C%20high%20quality%20portrait%2C%20professional%20photography%2C%20soft%20lighting%2C%20clean%20background&width=50&height=50&seq=7&orientation=squarish" alt="Alex M." class="w-10 h-10 rounded-full mr-3">
 <div>
 <h3 class="text-sm font-medium">Alex Mitchell</h3>
-<p class="text-xs text-gray-500">Yota Customer • 2 days ago</p>
+<p class="text-xs text-gray-500" data-ru="Клиент Yota • 2 дня назад" data-uz="Yota mijosi • 2 kun oldin" data-tj="Мизоҷи Yota • 2 рӯз пеш">Yota Customer • 2 days ago</p>
 </div>
 </div>
-<p class="text-sm text-gray-700 mb-3">
+<p class="text-sm text-gray-700 mb-3" data-ru="Переход на Yota был лучшим решением в этом году. Безлимитный тариф идеально подходит для моих рабочих нужд, а служба поддержки была исключительной. Очень рекомендую!" data-uz="Yota'ga o'tish bu yil qilgan eng yaxshi qarorim edi. Cheksiz tarif ish ehtiyojlarim uchun juda qulay va mijozlarga xizmat ko'rsatish ajoyib edi. Juda tavsiya qilaman!" data-tj="Гузариш ба Yota беҳтарин қарор дар ин сол буд. Нақшаи номаҳдуд барои ниёзҳои кориам комилан мувофиқ аст ва хизматрасонии муштариён аъло буд. Тавсия медиҳам!">
 Switching to Yota was the best decision I made this year. The unlimited data plan is perfect for my work needs, and customer service has been exceptional. Highly recommend!
 </p>
 <div class="flex items-center text-xs text-gray-500">
@@ -443,12 +491,12 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 </div>
 </div>
 </div>
-</section>
+
 <!-- Contact Options -->
 <section class="mt-6 px-4">
-<h2 class="text-lg font-semibold mb-4">Contact Us</h2>
+<h2 class="text-lg font-semibold mb-4" data-ru="Свяжитесь с нами" data-uz="Biz bilan bog'laning" data-tj="Бо мо тамос гиред">Contact Us</h2>
 <div class="grid grid-cols-2 gap-3 mb-4">
-<a href="https://wa.me/qr/GMPPFI6N5VQRA1 " class="https://t.me/+fvWPhzlUuIcyODUy bg-[#25D366] text-white py-3 px-4 rounded-lg flex items-center justify-center cursor-pointer">
+<a href="https://wa.me/9961956666" class="bg-[#25D366] text-white py-3 px-4 rounded-lg flex items-center justify-center cursor-pointer">
 <i class="ri-whatsapp-line ri-lg mr-2"></i>
 <span class="font-medium">WhatsApp</span>
 </a>
@@ -458,13 +506,13 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 </a>
 </div>
 <div class="bg-white rounded-lg shadow-sm p-4">
-<h3 class="font-medium mb-3">Emergency Support</h3>
+<h3 class="font-medium mb-3" data-ru="Экстренная поддержка" data-uz="Favqulodda yordam" data-tj="Дастгирии фаври">Emergency Support</h3>
 <div class="flex items-center mb-2">
 <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3">
 <i class="ri-phone-line text-red-500"></i>
 </div>
 <div>
-<p class="text-sm font-medium">24/7 Hotline</p>
+<p class="text-sm font-medium" data-ru="Горячая линия 24/7" data-uz="24/7 qo'llab-quvvatlash liniyasi" data-tj="Хати дастгирии 24/7">24/7 Hotline</p>
 <p class="text-xs text-gray-500">+7 (964) 145 80 88</p>
 </div>
 </div>
@@ -473,51 +521,55 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 <i class="ri-mail-line text-blue-500"></i>
 </div>
 <div>
-<p class="text-sm font-medium">Support Email</p>
+<p class="text-sm font-medium" data-ru="Поддержка по email" data-uz="Elektron pochta orqali yordam" data-tj="Дастгирии тариқи email">Support Email</p>
 <p class="text-xs text-gray-500">support@simconnect.com</p>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Location Section -->
 <section class="mt-6 px-4">
-<h2 class="text-lg font-semibold mb-4">Visit Our Store</h2>
+<h2 class="text-lg font-semibold mb-4" data-ru="Посетите наш магазин" data-uz="Do'konimizga tashrif buyuring" data-tj="Ба мағозаи мо ташриф оред">Visit Our Store</h2>
 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
 <div class="h-40 w-full relative">
 <img src="./img/2025-06-18_13-42-13.png" alt="Store Location" class="w-full h-full object-cover">
 <div class="absolute bottom-3 right-3">
 <button class="bg-white text-primary px-3 py-1.5 rounded-lg shadow-md text-sm font-medium flex items-center cursor-pointer">
+     <a href="https://yandex.ru/maps/213/moscow/stops/station__10105315/?ll=37.429153%2C55.631958&tab=overview&z=14">
 <i class="ri-map-pin-line mr-1"></i>
-Румянцево
-</button>
+Mаршрут в Румянцево.
+</a>
+</button> 
 </div>
 </div>
 <div class="p-4">
-<h3 class="font-medium mb-2">SimConnect Moscow</h3>
-<p class="text-sm text-gray-600 mb-3">Near Rumyantsevo Metro, Business Park "Rumyantsevo", Building A, Floor 2</p>
+<h3 class="font-medium mb-2" data-ru="SimConnect Москва" data-uz="SimConnect Moskva" data-tj="SimConnect Москва">SimConnect Moscow</h3>
+<p class="text-sm text-gray-600 mb-3" data-ru="Близко к метро Румянцево, Бизнес-парк «Румянцево», Здание А, 2 этаж" data-uz="Rumyantsevo metro bekati yaqinida, «Rumyantsevo» biznes parki, A binosi, 2-qavat" data-tj="Наздикии метрои Румянцево, Бизнес-парки «Румянцево», Бинои А, Оёи 2">Near Rumyantsevo Metro, Business Park "Rumyantsevo", Building A, Floor 2</p>
 <div class="flex flex-col space-y-2">
 <div class="flex items-center">
 <div class="w-6 h-6 flex items-center justify-center mr-2">
 <i class="ri-time-line text-gray-500"></i>
 </div>
-<p class="text-sm">Mon-Fri: 9:00 - 20:00, Sat-Sun: 10:00 - 18:00</p>
+<p class="text-sm" data-ru="Пн-Пт: 9:00 - 20:00, Сб-Вс: 10:00 - 18:00" data-uz="Dush-Jum: 9:00 - 20:00, Shan-Yak: 10:00 - 18:00" data-tj="Душ-Ҷум: 9:00 - 20:00, Шан-Як: 10:00 - 18:00">Mon-Fri: 9:00 - 20:00, Sat-Sun: 10:00 - 18:00</p>
 </div>
 <div class="flex items-center">
 <div class="w-6 h-6 flex items-center justify-center mr-2">
 <i class="ri-phone-line text-gray-500"></i>
 </div>
-<p class="text-sm">+7 (495) 987-6543</p>
+<p class="text-sm">+7 (996) 145 80 88</p>
 </div>
 <div class="flex items-center">
 <div class="w-6 h-6 flex items-center justify-center mr-2">
 <i class="ri-mail-line text-gray-500"></i>
 </div>
-<p class="text-sm">moscow@simconnect.com</p>
+<p class="text-sm">simcart@gmail.com</p>
 </div>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Tab Bar -->
 <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
 <div class="grid grid-cols-5 h-16">
@@ -525,34 +577,35 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-home-5-fill ri-lg"></i>
 </div>
-<span class="text-xs mt-1">Home</span>
+<span class="text-xs mt-1" data-ru="Главная" data-uz="Bosh" data-tj="Асосӣ">Home</span>
 </a>
 <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-sim-card-line ri-lg"></i>
 </div>
-<span class="text-xs mt-1">SIM Cards</span>
+<span class="text-xs mt-1" data-ru="SIM-карты" data-uz="SIM-kartalar" data-tj="SIM-картаҳо">SIM Cards</span>
 </a>
 <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-shopping-cart-line ri-lg"></i>
 </div>
-<span class="text-xs mt-1">Cart</span>
+<span class="text-xs mt-1" data-ru="Корзина" data-uz="Savat" data-tj="Корзина">Cart</span>
 </a>
 <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-message-3-line ri-lg"></i>
 </div>
-<span class="text-xs mt-1">Stories</span>
+<span class="text-xs mt-1" data-ru="Истории" data-uz="Hikoyalar" data-tj="Қиссаҳо">Stories</span>
 </a>
 <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
 <div class="w-6 h-6 flex items-center justify-center">
 <i class="ri-user-line ri-lg"></i>
 </div>
-<span class="text-xs mt-1">Profile</span>
+<span class="text-xs mt-1" data-ru="Профиль" data-uz="Profil" data-tj="Профил">Profile</span>
 </a>
 </div>
 </nav>
+
 <!-- Emergency Hotline Button -->
 <div class="fixed bottom-20 right-4 z-40">
 <a href="tel:89961956666" id="hotlineBtn" class="relative group">
@@ -563,11 +616,12 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 </button>
 </a>
 </div>
+
 <!-- AI Assistant Modal -->
 <div id="aiAssistantModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-end justify-center">
 <div class="bg-white rounded-t-xl w-full max-w-md p-4 animate-slide-up">
 <div class="flex items-center justify-between mb-4">
-<h3 class="text-lg font-semibold">AI Assistant</h3>
+<h3 class="text-lg font-semibold" data-ru="AI Ассистент" data-uz="AI Yordamchi" data-tj="Ёрдамчии AI">AI Assistant</h3>
 <button id="closeAssistantBtn" class="w-8 h-8 flex items-center justify-center cursor-pointer">
 <i class="ri-close-line ri-lg"></i>
 </button>
@@ -577,37 +631,82 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-2 flex-shrink-0">
 <i class="ri-robot-line text-white"></i>
 </div>
-<div class="bg-white rounded-lg p-2 text-sm">
+<div class="bg-white rounded-lg p-2 text-sm" data-ru="Привет! Я ваш помощник SimConnect. Чем могу помочь сегодня?" data-uz="Salom! Men sizning SimConnect yordamchingizman. Bugun sizga qanday yordam bera olaman?" data-tj="Салом! Ман ёрдамчии SimConnect-и шумо ҳастам. Имрӯз ба шумо чӣ гуна ёрдам диҳам метавонам?">
 Hello! I'm your SimConnect assistant. How can I help you today?
 </div>
 </div>
 </div>
 <div class="flex">
-<input type="text" placeholder="Ask something..." class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:border-primary">
+<input type="text" placeholder="Ask something..." class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:border-primary" data-ru="Задайте вопрос..." data-uz="Savol bering..." data-tj="Савол пурсед...">
 <button class="bg-primary text-white px-4 py-2 rounded-r-lg cursor-pointer">
 <i class="ri-send-plane-fill"></i>
 </button>
 </div>
 </div>
 </div>
+
 <!-- Scripts -->
-<script id="aiAssistantScript">
+<script>
+// Language switching functionality
+function setLanguage(lang) {
+// Set html lang attribute
+document.documentElement.lang = lang;
+  
+// Update all elements with data attributes
+document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
+if (element.dataset[lang]) {
+if (element.tagName === 'INPUT' && element.placeholder) {
+element.placeholder = element.dataset[lang];
+} else if (element.tagName === 'TITLE') {
+document.title = element.dataset[lang];
+} else {
+element.textContent = element.dataset[lang];
+}
+}
+});
+
+// Update buttons with inner spans
+document.querySelectorAll('button').forEach(button => {
+if (button.dataset[lang]) {
+button.innerHTML = button.dataset[lang];
+}
+});
+
+// Update links with inner spans
+document.querySelectorAll('a.addcart').forEach(link => {
+if (link.dataset[lang]) {
+link.textContent = link.dataset[lang];
+}
+});
+
+// Save language preference to localStorage
+localStorage.setItem('preferredLanguage', lang);
+}
+
+// Check for saved language preference
+document.addEventListener('DOMContentLoaded', function() {
+const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
+setLanguage(savedLang);
+});
+
+// Rest of your existing scripts
 document.addEventListener('DOMContentLoaded', function() {
 const aiAssistantBtn = document.getElementById('aiAssistantBtn');
 const aiAssistantModal = document.getElementById('aiAssistantModal');
 const closeAssistantBtn = document.getElementById('closeAssistantBtn');
+if (aiAssistantBtn) {
 aiAssistantBtn.addEventListener('click', function() {
 aiAssistantModal.classList.remove('hidden');
 document.body.style.overflow = 'hidden';
 });
+}
+if (closeAssistantBtn) {
 closeAssistantBtn.addEventListener('click', function() {
 aiAssistantModal.classList.add('hidden');
 document.body.style.overflow = 'auto';
 });
-});
-</script>
-<script id="storyViewerScript">
-document.addEventListener('DOMContentLoaded', function() {
+}
+
 const storyCircles = document.querySelectorAll('.story-container .rounded-full');
 const storyUpload = document.getElementById('storyUpload');
 
@@ -649,6 +748,7 @@ document.body.removeChild(viewer);
 }
 }
 
+if (storyCircles) {
 storyCircles.forEach(circle => {
 circle.addEventListener('click', function() {
 if (!this.contains(storyUpload)) {
@@ -661,6 +761,7 @@ createFullscreenViewer(mediaElement.src, isVideo);
 });
 });
 
+if (storyUpload) {
 storyUpload.addEventListener('change', function(e) {
 const file = e.target.files[0];
 if (file) {
@@ -670,7 +771,7 @@ const mediaUrl = URL.createObjectURL(file);
 
 const toast = document.createElement('div');
 toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
-toast.textContent = `${isVideo ? 'Video' : 'Photo'} uploaded successfully!`;
+toast.textContent = isVideo ? 'Video uploaded successfully!' : 'Photo uploaded successfully!';
 document.body.appendChild(toast);
 setTimeout(() => document.body.removeChild(toast), 2000);
 
@@ -700,24 +801,28 @@ addStoryButton.parentNode.insertBefore(newStory, addStoryButton);
 }
 }
 });
-});
-</script>
-<script id="cartFunctionalityScript">
-document.addEventListener('DOMContentLoaded', function() {
+}
+}
+
 const addToCartButtons = document.querySelectorAll('button:not(#aiAssistantBtn):not(#closeAssistantBtn)');
 const cartTab = document.querySelector('nav a:nth-child(3)');
 let cartCount = 0;
+
+if (addToCartButtons && cartTab) {
 addToCartButtons.forEach(button => {
-if (button.textContent.trim() === 'Add to Cart') {
+if (button.textContent.trim() === 'Add to Cart' || 
+    button.textContent.trim() === 'В корзину' || 
+    button.textContent.trim() === 'Savatga' || 
+    button.textContent.trim() === 'Ба корзина') {
 button.addEventListener('click', function(e) {
-e.stopPropagation(); // Prevent card click event
+e.stopPropagation();
 cartCount++;
-// Create and show a toast notification
+
 const toast = document.createElement('div');
 toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
 toast.textContent = 'Added to cart!';
 document.body.appendChild(toast);
-// Update cart icon with count
+
 const cartIcon = cartTab.querySelector('.w-6');
 if (!cartIcon.querySelector('span')) {
 const badge = document.createElement('span');
@@ -728,23 +833,15 @@ cartIcon.appendChild(badge);
 } else {
 cartIcon.querySelector('span').textContent = cartCount;
 }
-// Remove toast after 2 seconds
+
 setTimeout(() => {
 document.body.removeChild(toast);
 }, 2000);
 });
 }
 });
+}
 });
-
-
-
 </script>
 </body>
 </html>
-
-
-
-
-
-
