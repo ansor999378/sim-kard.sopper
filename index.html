@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,9 +8,29 @@
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#6200EA',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 
+               
+
+<link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">        
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
@@ -17,6 +38,91 @@
 <link rel="stylesheet" href="./main.css">
 <link rel="icon" type="image/x-icon" href="./img/Frame 1 (15).png">
 <style>
+
+
+
+
+
+
+#showMoreBtn {
+    position: relative;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    top: -60px;
+}
+
+#showMoreBtn:hover {
+    background-color: #4c00b4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for the tab bar */
+    nav {
+      font-family: Arial, sans-serif;
+    }
+    .text-primary {
+      color: #636363; /* Default color for non-active tabs */
+    }
+    /* Hover and focus state for visual feedback */
+    a:hover,
+    a:focus {
+      color: #E452F7;
+      outline: none; /* Remove default focus outline */
+    }
+    a:hover svg path,
+    a:focus svg path {
+      fill: #E452F7;
+      stroke: #E452F7;
+    }
+    a:hover i,
+    a:focus i {
+      color: #E452F7;
+    }
+    /* Active state for the Home tab (or any pre-selected tab) */
+    .active {
+      color: #E452F7 !important;
+    }
+    .active svg path {
+      fill: #E452F7 !important;
+      stroke: #E452F7 !important;
+    }
+    .active i {
+      color: #E452F7 !important;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :where([class^="ri-"])::before { content: "\f3c2"; }
 @keyframes glow {
 0% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
@@ -99,6 +205,107 @@ padding-bottom: 64px;
  .button:hover .ru:checked ~ .custom-Ru{
     background-color: #433b1c;
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Yangi qo'shilgan qidiruv qismi uchun stil */
+.search-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+.search-input-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #6200EA;
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    font-size: 18px;
+}
+
+/* Karta konteyneri uchun stil */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 12px;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </style>
@@ -219,6 +426,32 @@ padding-bottom: 64px;
 </div>
 </section>
 
+
+
+
+
+
+
+<!-- Kengaytirilgan qidiruv qismi -->
+<div class="search-container">
+    <div class="search-input-container">
+        <input
+            type="text"
+            id="phoneSearch"
+            class="search-input"
+            placeholder="Search number"
+            data-ru="Поиск номера"
+            data-uz="Raqam qidirish"
+            data-tj="Ҷустуҷӯи рақам"
+        />
+        <i class="ri-search-line search-icon"></i>
+    </div>
+</div>
+
+
+
+
+
 <!-- Operator Collections -->
 <section class="mt-6 px-4">
 <div class="flex items-center justify-between mb-4">
@@ -235,19 +468,20 @@ padding-bottom: 64px;
 <i class="ri-sim-card-line text-[#00B956] ri-lg"></i>
 </div>
 <div>
-<h3 class="font-medium">Megafon    50Гб</50></h3>
-<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
+<h3 class="font-medium">Megafon    50Гб<!--50--></h3>
+
+<img src="./img/Frame 18.svg" alt="">             
 </div>
 </div>
-<span class="text-sm font-bold text-[#00B956]">₽38.99</span>
+<span class="text-sm font-bold text-[#00B956]">₽25.99</span>
 </div>
 <div class="bg-gray-50 rounded-lg p-3 mb-3">
-<p class="text-xl font-bold text-center">+7 (930) 836 33-30</p>
+<p class="text-xl font-bold text-center">+7 (999) 384 72-71</p>
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600" data-ru="Бизнес серия" data-uz="Biznes seriya" data-tj="Силсилаи тиҷорат">Business Series</span>
+<span class="text-xs text-gray-600" data-ru="Бизнес серия" data-uz="Biznes seriya" data-tj="Силсилаи тиҷорат">Силсилаи тиҷорат</span>
 </div>
 <button class="bg-[#00B956] text-white px-4 py-2 !rounded-button cursor-pointer">
     <a href="./index1.html" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина"></a>
@@ -255,8 +489,6 @@ padding-bottom: 64px;
 </button>
 </div>
 </div>
-</div>
-    
 <!-- Tele2 Card -->
 <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
 <div class="flex items-center justify-between mb-3">
@@ -266,7 +498,8 @@ padding-bottom: 64px;
 </div>
 <div>
 <h3 class="font-medium">Tele2 </h3>
-<p class="text-xs text-gray-500" data-ru="Золотой номер" data-uz="Oltin raqam" data-tj="Рақами тилоӣ">Gold Number</p>
+<img src="./img/Frame 13 (6).svg" alt="">
+
 </div>
 </div>
 <span class="text-sm font-bold text-black">₽24.99</span>
@@ -284,6 +517,7 @@ padding-bottom: 64px;
 </button>
 </div>
 </div>
+
 <!-- Megafon Card -->
 <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
 <div class="flex items-center justify-between mb-3">
@@ -293,13 +527,13 @@ padding-bottom: 64px;
 </div>
 <div>
 <h3 class="font-medium">Megafon    50Гб</50></h3>
-<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
+  <img src="img/Frame 18.svg" alt=""> 
 </div>
 </div>
 <span class="text-sm font-bold text-[#00B956]">₽25.99</span>
 </div>
 <div class="bg-gray-50 rounded-lg p-3 mb-3">
-<p class="text-xl font-bold text-center">+7 (999) 384 72-71</p>
+<p class="text-xl font-bold text-center">+7 (930) 747 66-69</p>
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center">
@@ -314,6 +548,38 @@ padding-bottom: 64px;
 </div>
 </div>
 
+
+<!-- Tele2 Card -->
+<div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-black/10 rounded-full mr-3">
+<i class="ri-sim-card-line text-black ri-lg"></i>
+</div>
+<div>
+<h3 class="font-medium">Tele2 </h3>
+
+<img src="./img/Frame 13 (6).svg" alt="">
+
+</div>
+</div>
+<span class="text-sm font-bold text-black">₽24.99</span>
+</div>
+<div class="bg-gray-50 rounded-lg p-3 mb-3">
+<p class="text-xl font-bold text-center">+7 (999) 917 72-73 </p>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<i class="ri-star-fill text-yellow-400 mr-1"></i>
+<span class="text-xs text-gray-600" data-ru="Золотая серия" data-uz="Oltin seriya" data-tj="Силсилаи тилоӣ">Gold Series</span>
+</div>
+<button class="bg-black text-white px-4 py-2 !rounded-button cursor-pointer">
+<a href="./index1.html" class="addcart" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Add to Cart</a>
+</button>
+</div>
+</div>
+
+
 <!-- MTS Card -->
 <div class="operator-card mts-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
 <div class="flex items-center justify-between mb-3">
@@ -322,8 +588,10 @@ padding-bottom: 64px;
 <i class="ri-sim-card-line text-[#E30611] ri-lg"></i>
 </div>
 <div>
-<h3 class="font-medium">MTS 200ГБ</h3>
-<p class="text-xs text-gray-500" data-ru="Премиум номер" data-uz="Premium raqam" data-tj="Рақами премиум">Premium Number</p>
+<h3 class="font-medium">MTS 200ГБ</h3> 
+ 
+
+<img src="./img/mts (2).svg" alt="">
 </div>
 </div>
 <span class="text-sm font-bold text-[#E30611]"> ₽27.99</span>
@@ -355,7 +623,7 @@ padding-bottom: 64px;
 </div>
 <div>
 <h3 class="font-medium">Megafon    50Гб</50></h3>
-<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
+<img src="img/Frame 18.svg" alt="">
 </div>
 </div>
 <span class="text-sm font-bold text-[#00B956]">₽25.99</span>
@@ -385,7 +653,8 @@ padding-bottom: 64px;
 </div>
 <div>
 <h3 class="font-medium">MTS 200ГБ</h3>
-<p class="text-xs text-gray-500" data-ru="Премиум номер" data-uz="Premium raqam" data-tj="Рақами премиум">Premium Number</p>
+
+<img src="./img/mts (2).svg" alt="">
 </div>
 </div>
 <span class="text-sm font-bold text-[#E30611]"> ₽27.99</span>
@@ -417,7 +686,7 @@ padding-bottom: 64px;
 </div>
 <div>
 <h3 class="font-medium">Megafon    50Гб</50></h3>
-<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
+<img src="img/Frame 18.svg" alt="">
 </div>
 </div>
 <span class="text-sm font-bold text-[#00B956]">₽68.99</span>
@@ -477,27 +746,49 @@ padding-bottom: 64px;
 <i class="ri-sim-card-line text-[#00B956] ri-lg"></i>
 </div>
 <div>
-<h3 class="font-medium">Megafon    50Гб</50></h3>
-<p class="text-xs text-gray-500" data-ru="Бизнес номер" data-uz="Biznes raqam" data-tj="Рақами тиҷорат">Business Number</p>
+<h3 class="font-medium">Megafon    50Гб<!--50--></h3>
+
+ <i class="fa-brands fa-telegram fa-xl" style="color: #0392ff;"></i>
+          
+  <div class="watsapp">
+    <i class="fa-brands fa-square-whatsapp fa-xl" style="color: #00ff04;"></i>
+  </div>
+
+
+            <div class="wk">
+                <i class="fa-brands fa-vk fa-xl" style="color: #025993;"></i>
+              </div>
+
+
+               <div class="chat">
+                    <i class="fa-brands fa-square-snapchat fa-xl" style="color: #FFD43B;"></i>
+          </div>
+         
+           <div class="viber">
+             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="30" viewBox="0 0 24 24"><path fill="#001194" fill-rule="evenodd" d="M16.676 2.628a21.9 21.9 0 0 0-9.555 0l-.339.075a4.905 4.905 0 0 0-3.684 3.58a19.467 19.467 0 0 0 0 9.577a4.905 4.905 0 0 0 3.444 3.52l.465 2.776a.5.5 0 0 0 .826.29l2.731-2.443a21.898 21.898 0 0 0 6.112-.487l.34-.075a4.905 4.905 0 0 0 3.684-3.58a19.469 19.469 0 0 0 0-9.577a4.905 4.905 0 0 0-3.685-3.58zM7.965 6.202a.822.822 0 0 0-.537.106h-.014c-.375.22-.713.497-1.001.823c-.24.277-.37.557-.404.827c-.02.16-.006.322.041.475l.018.01c.27.793.622 1.556 1.052 2.274a13.374 13.374 0 0 0 2.03 2.775l.024.034l.038.028l.023.027l.028.024a13.564 13.564 0 0 0 2.782 2.04c1.155.629 1.856.926 2.277 1.05v.006c.123.038.235.055.348.055a1.61 1.61 0 0 0 .964-.414c.325-.288.6-.627.814-1.004v-.007c.201-.38.133-.738-.157-.981A12.126 12.126 0 0 0 14.41 13c-.448-.243-.903-.096-1.087.15l-.393.496c-.202.246-.568.212-.568.212l-.01.006c-2.731-.697-3.46-3.462-3.46-3.462s-.034-.376.219-.568l.492-.396c.236-.192.4-.646.147-1.094a11.807 11.807 0 0 0-1.347-1.88a.748.748 0 0 0-.44-.263zM12.579 5a.5.5 0 0 0 0 1c1.265 0 2.315.413 3.146 1.205c.427.433.76.946.978 1.508c.219.563.319 1.164.293 1.766a.5.5 0 0 0 1 .042a5.359 5.359 0 0 0-.361-2.17a5.442 5.442 0 0 0-1.204-1.854l-.01-.01C15.39 5.502 14.085 5 12.579 5m-.034 1.644a.5.5 0 0 0 0 1h.017c.912.065 1.576.369 2.041.868c.477.514.724 1.153.705 1.943a.5.5 0 0 0 1 .023c.024-1.037-.31-1.932-.972-2.646V7.83c-.677-.726-1.606-1.11-2.724-1.185l-.017-.002zm-.019 1.675a.5.5 0 1 0-.052.998c.418.022.685.148.853.317c.169.17.295.443.318.87a.5.5 0 1 0 .998-.053c-.032-.6-.22-1.13-.605-1.52c-.387-.39-.914-.58-1.512-.612" clip-rule="evenodd"></path></svg>
+
+           </div>
+
+             
 </div>
 </div>
 <span class="text-sm font-bold text-[#00B956]">₽25.99</span>
 </div>
 <div class="bg-gray-50 rounded-lg p-3 mb-3">
-<p class="text-xl font-bold text-center">+7 (930) 833 38-66</p>
+<p class="text-xl font-bold text-center">+7 (999) 384 72-71</p>
 </div>
 <div class="flex justify-between items-center">
 <div class="flex items-center">
 <i class="ri-star-fill text-yellow-400 mr-1"></i>
-<span class="text-xs text-gray-600" data-ru="Бизнес серия" data-uz="Biznes seriya" data-tj="Силсилаи тиҷорат">Business Series</span>
+<span class="text-xs text-gray-600" data-ru="Бизнес серия" data-uz="Biznes seriya" data-tj="Силсилаи тиҷорат">Силсилаи тиҷорат</span>
 </div>
 <button class="bg-[#00B956] text-white px-4 py-2 !rounded-button cursor-pointer">
-    <a href="./index1.html" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина"></a>
+    <a href="file:///C:/Users/%D0%A3%D0%B1%D0%B0%D0%B9%D0%B4%D1%83%D0%BB%D0%BB%D0%BE%D1%85/Downloads/%D0%9D%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BF%D0%BA%D0%B0/index1.html" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Ба корзина</a>
 
 </button>
 </div>
 </div>
-</div>
+
 <!--megafon-->
 <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
 <div class="flex items-center justify-between mb-3">
@@ -1120,93 +1411,52 @@ padding-bottom: 64px;
 </div>
 </div>
 
-      <!-- yotea -->
-   <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
-    <div class="flex items-center mb-2">
-<div class="w-8 h-8 flex items-center justify-center bg-[#0077FF]/10 rounded-full mr-2">
-<i class="ri-sim-card-line text-[#0077FF]"></i>
-</div>
-<h3 class="font-medium">Yota</h3>
-</div>
-<p class="text-xs text-gray-600 mb-2" data-ru="Неограниченное количество данных, гибкие тарифные планы" data-uz="Cheksiz ma'lumotlar, moslashuvchan ma'lumotlar rejalari" data-tj="Маълумоти номаҳдуд, нақшаҳои тағйирпазир">Unlimited data, flexible plans</p>
-<div class="flex justify-between items-center">
-<span class="text-sm font-bold"> ₽12.99/mo</span>
-<button class="bg-[#0077FF] text-white text-xs px-2 py-1 !rounded-button cursor-pointer"  data-ru="В корзина"  data-uz="savatga " data-tj="Харидан"></a></a>
-     
-
-</button>
-</div>
-</div>
 
 
-<!-- Tele2 Card -->
-<div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
-<div class="flex items-center mb-2">
-<div class="w-8 h-8 flex items-center justify-center bg-black/10 rounded-full mr-2">
-<i class="ri-sim-card-line text-black"></i>
-</div>
-<h3 class="font-medium">Tele2</h3>
-</div>
-<p class="text-xs text-gray-600 mb-2" data-ru="Бюджетный вариант с большим охватом " data-uz="Katta qamrovli byudjetga mos" data-tj="Аз ҷиҳати буҷет бо фарогирии бузург">Budget-friendly with great coverage</p>
-<div class="flex justify-between items-center">
-<span class="text-sm font-bold"> ₽9.99/mo</span>
-<button class="bg-black text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="добыть в корзине." data-uz="savatga" data-tj="Харидан" >
-Add to Cart
-</button>
-</div>
-</div>
-      <!-- bilene -->
-    <!-- Beeline Card -->
-<div class="operator-card beeline-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
-<div class="flex items-center mb-2">
-<div class="w-8 h-8 flex items-center justify-center bg-[#FFCC00]/10 rounded-full mr-2">
-<i class="ri-sim-card-line text-[#FFCC00]"></i>
-</div>
-<h3 class="font-medium">Beeline</h3>
-</div>
-<p class="text-xs text-gray-600 mb-2" data-ru="Семейные планы с общими данными" data-uz="Umumiy maʼlumotlarga ega oilaviy rejalar" data-tj="Нақшаҳои оилавӣ бо маълумоти муштарак">Family plans with shared data</p>
-<div class="flex justify-between items-center">
-<span class="text-sm font-bold"> ₽14.99/mo</span>
-<button class="bg-[#FFCC00] text-black text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="добыть в корзине." data-uz="savatga" data-tj="Харидан">
-Add to Cart
-</button>
-</div>
-</div>
 
-       <!-- MTS Card -->
-<div class="operator-card mts-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
-<div class="flex items-center mb-2">
-<div class="w-8 h-8 flex items-center justify-center bg-[#E30611]/10 rounded-full mr-2">
-<i class="ri-sim-card-line text-[#E30611]"></i>
-</div>
-<h3 class="font-medium">MTS</h3>
-</div>
-<p class="text-xs text-gray-600 mb-2" data-ru="Премиум-сервис с глобальным роумингом" data-uz="Global rouming bilan premium xizmat" data-tj="Хизматрасонии премиум бо роуминги ҷаҳонӣ">Premium service with global roaming</p>
-<div class="flex justify-between items-center">
-<span class="text-sm font-bold"> ₽16.99/mo</span>
-<button class="bg-[#E30611] text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru="дабыть в корзине" data-uz="savatga" data-tj="Харидан">
-Add to Cart
-</button>
-</div>
-</div>
+<section class="mt-6 px-4">
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold" ></h2>
+        <button class="text-primary text-sm font-medium cursor-pointer"></button>
+    </div>
+    <div class="cards-container">
+        <!-- Barcha operator-card elementlari shu yerga ko'chiriladi -->
+        <!-- Masalan: -->
+        <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-0 p-0 cursor-pointer">
+            <!-- Megafon kartasi -->
+        </div>
+        <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-0 p-0 ">
+            <!-- Tele2 kartasi -->
+        </div>
+        <!-- Boshqa kartalar -->
+    </div>
+    <div class="text-center mt-4">
+        <button id="showMoreBtn" class="bg-primary text-white px-6 py-2 rounded-button cursor-pointer hidden" data-ru="Показать ещё" data-uz="Ko'proq ko'rsatish" data-tj="Бештар нишон додан">Ko'proq ko'rsatish</button>
+    </div>
+</section>
+    
 
-    <!-- Megafon Card -->
-<div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-3 cursor-pointer">
-<div class="flex items-center mb-2">
-<div class="w-8 h-8 flex items-center justify-center bg-[#00B956]/10 rounded-full mr-2">
-<i class="ri-sim-card-line text-[#00B956]"></i>
-</div>
-<h3 class="font-medium">Megafon</h3>
-</div>
-<p class="text-xs text-gray-600 mb-2" data-ru="Быстрая сеть 5G с бонусами" data-uz="Bonuslar bilan tezkor 5G tarmog'i" data-tj="Шабакаи 5G зуд бо бонусҳо">Fast 5G network with bonuses</p>
-<div class="flex justify-between items-center">
-<span class="text-sm font-bold"> ₽15.99/mo</span>
-<button class="bg-[#00B956] text-white text-xs px-2 py-1 !rounded-button cursor-pointer" data-ru=" дабыть в корзине" data-uz="Savatga" data-tj="Харидан">
-Add to Cart
-</button>
-</div>
-</div>
-     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Special Offer Card -->
 <div class="operator-card bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg shadow-sm p-3 cursor-pointer">
 <div class="flex items-center mb-2">
@@ -1228,7 +1478,8 @@ View Deals
 
 
 <!-- Featured Story -->
-<div class="mt-3 bg-white rounded-lg shadow-sm p-4">
+   <div class="contanerrrr">
+    <div class="mt-3 bg-white rounded-lg shadow-sm p-4">
 <div class="flex items-center mb-3">
 <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20businessman%20in%20a%20suit%2C%20smiling%2C%20high%20quality%20portrait%2C%20professional%20photography%2C%20soft%20lighting%2C%20clean%20background&width=50&height=50&seq=7&orientation=squarish" alt="Alex M." class="w-10 h-10 rounded-full mr-3">
 <div>
@@ -1250,6 +1501,19 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 </div>
 </div>
 </div>
+   </div>
+
+
+
+
+
+
+  
+
+
+
+
+
 
 <!-- Contact Options -->
 <section class="mt-6 px-4">
@@ -1286,6 +1550,8 @@ Switching to Yota was the best decision I made this year. The unlimited data pla
 </div>
 </div>
 </section>
+
+
 
 <!-- Location Section -->
 <section class="mt-6 px-4">
@@ -1326,44 +1592,48 @@ Mаршрут в Румянцево.
 </div>
 </div>
 </div>
-</div>
+</div>      
 </section>
 
 <!-- Tab Bar -->
-<nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
-<div class="grid grid-cols-5 h-16">
-<a href="#" class="flex flex-col items-center justify-center text-primary cursor-pointer">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-home-5-fill ri-lg"></i>
-</div>
-<span class="text-xs mt-1" data-ru="Главная" data-uz="Bosh" data-tj="Асосӣ">Home</span>
-</a>
-<a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-sim-card-line ri-lg"></i>
-</div>
-<span class="text-xs mt-1" data-ru="SIM-карты" data-uz="SIM-kartalar" data-tj="SIM-картаҳо">SIM Cards</span>
-</a>
-<a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-shopping-cart-line ri-lg"></i>
-</div>
-<span class="text-xs mt-1" data-ru="Корзина" data-uz="Savat" data-tj="Корзина">Cart</span>
-</a>
-<a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-message-3-line ri-lg"></i>
-</div>
-<span class="text-xs mt-1" data-ru="Истории" data-uz="Hikoyalar" data-tj="Қиссаҳо">Stories</span>
-</a>
-<a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-user-line ri-lg"></i>
-</div>
-<span class="text-xs mt-1" data-ru="Профиль" data-uz="Profil" data-tj="Профил">Profile</span>
-</a>
-</div>
-</nav>
+  <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
+    <div class="grid grid-cols-5 h-16">
+      <a href="./index.html" class="flex flex-col items-center justify-center text-primary cursor-pointer active">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-home-5-fill ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Главная" data-uz="Bosh" data-tj="Асосӣ">Home</span>
+      </a>
+      <a href="./sim.html" target="_blank" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+            <path fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5v2a1 1 0 0 1-1 1h-2m0-13h2a1 1 0 0 1 1 1v2m-13 0v-2a1 1 0 0 1 1-1h2m0 13h-2a1 1 0 0 1-1-1v-2m3.5-7v2m6-2v2m-3-1V8H5.5m-1 2a3.63 3.63 0 0 0 5 0"/>
+          </svg>
+        </div>
+        <span class="text-xs mt-1" data-ru="регистрация" data-uz="SIM-kartalar" data-tj="SIM-картаҳо">SIM Cards</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-shopping-cart-line ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Корзина" data-uz="Savat" data-tj="Корзина">Cart</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024">
+            <path fill="#696969" d="M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32m-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96z"/>
+          </svg>
+        </div>
+        <span class="text-xs mt-1" data-ru="Истории" data-uz="Hikoyalar" data-tj="Қиссаҳо">Stories</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-user-line ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Профиль" data-uz="Profil" data-tj="Профил">Profile</span>
+      </a>
+    </div>
+  </nav>
 
 <!-- Emergency Hotline Button -->
 <div class="fixed bottom-20 right-4 z-40">
@@ -1406,6 +1676,208 @@ Hello! I'm your SimConnect assistant. How can I help you today?
 
 <!-- Scripts -->
 <script>
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementlarni tanlash
+    const searchInput = document.getElementById('phoneSearch');
+    const operatorCards = document.querySelectorAll('.operator-card');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const cardsPerPage = 7;
+    let visibleCards = cardsPerPage;
+
+    // Dastlabki kartalarni ko'rsatish va yashirish
+    operatorCards.forEach((card, index) => {
+        if (index < cardsPerPage) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    // Ko'proq ko'rsatish tugmasini faollashtirish
+    if (operatorCards.length > cardsPerPage && showMoreBtn) {
+        showMoreBtn.classList.remove('hidden');
+        showMoreBtn.addEventListener('click', () => {
+            const nextCards = Array.from(operatorCards).slice(visibleCards, visibleCards + cardsPerPage);
+            nextCards.forEach(card => card.classList.remove('hidden'));
+            visibleCards += cardsPerPage;
+            if (visibleCards >= operatorCards.length) {
+                showMoreBtn.classList.add('hidden');
+            }
+        });
+    }
+
+    // Qidiruv funksiyasi
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const searchValue = searchInput.value.trim().replace(/\D/g, '');
+            operatorCards.forEach(card => {
+                const phoneNumberElement = card.querySelector('.bg-gray-50 p.text-xl');
+                if (phoneNumberElement) {
+                    const phoneNumber = phoneNumberElement.textContent.trim().replace(/\D/g, '');
+                    card.style.display = (searchValue === '' || phoneNumber.includes(searchValue)) ? 'block' : 'none';
+                }
+            });
+        });
+    }
+
+    // Til o'zgartirishda tugma va placeholder matnlarini yangilash
+    const updateLanguage = (lang) => {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
+            if (element.dataset[lang]) {
+                if (element.tagName === 'INPUT' && element.placeholder) {
+                    element.placeholder = element.dataset[lang];
+                } else if (element.tagName === 'TITLE') {
+                    document.title = element.dataset[lang];
+                } else {
+                    element.textContent = element.dataset[lang];
+                }
+            }
+        });
+        if (showMoreBtn && showMoreBtn.dataset[lang]) {
+            showMoreBtn.textContent = showMoreBtn.dataset[lang];
+        }
+        if (searchInput && searchInput.dataset[lang]) {
+            searchInput.placeholder = searchInput.dataset[lang];
+        }
+        localStorage.setItem('preferredLanguage', lang);
+    };
+
+    // Saqlangan tilni yuklash
+    const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
+    updateLanguage(savedLang);
+
+    // Til o'zgartirish funksiyasi
+    window.setLanguage = updateLanguage;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('phoneSearch');
+  const operatorCards = document.querySelectorAll('.operator-card');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      const searchValue = this.value.trim().replace(/\D/g, ''); // Remove non-numeric characters
+      operatorCards.forEach(card => {
+        const phoneNumberElement = card.querySelector('.bg-gray-50 p.text-xl');
+        if (phoneNumberElement) {
+          const phoneNumber = phoneNumberElement.textContent.trim().replace(/\D/g, ''); // Remove non-numeric characters
+          if (searchValue === '' || phoneNumber.includes(searchValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  }
+
+  // Ensure search input placeholder updates with language change
+  function updateSearchPlaceholder(lang) {
+    if (searchInput && searchInput.dataset[lang]) {
+      searchInput.placeholder = searchInput.dataset[lang];
+    }
+  }
+
+  // Modify setLanguage to update search placeholder
+  const originalSetLanguage = setLanguage;
+  setLanguage = function (lang) {
+    originalSetLanguage(lang);
+    updateSearchPlaceholder(lang);
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('nav a');
+  const activeTab = localStorage.getItem('activeTab');
+  if (activeTab) {
+    tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+    document.querySelector(`a[href="${activeTab}"]`)?.classList.add('active');
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+      tab.classList.add('active');
+      localStorage.setItem('activeTab', tab.getAttribute('href'));
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Language switching functionality
 function setLanguage(lang) {
 // Set html lang attribute
@@ -1601,7 +2073,55 @@ document.body.removeChild(toast);
 });
 }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.cards-container .operator-card');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const cardsPerPage = 7; // Har safar ko'rsatiladigan kartalar soni
+    let visibleCards = cardsPerPage; // Dastlab ko'rsatilgan kartalar soni
+
+    // Dastlabki 7 ta kartani ko'rsatish, qolganlarini yashirish
+    cards.forEach((card, index) => {
+        if (index < cardsPerPage) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    // Agar 7 tadan ko'p karta bo'lsa, tugmani ko'rsatish
+    if (cards.length > cardsPerPage && showMoreBtn) {
+        showMoreBtn.classList.remove('hidden');
+    }
+
+    // Tugma bosilganda keyingi 7 ta kartani ko'rsatish
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            const nextCards = Array.from(cards).slice(visibleCards, visibleCards + cardsPerPage);
+            nextCards.forEach(card => card.classList.remove('hidden'));
+            visibleCards += cardsPerPage;
+
+            // Agar barcha kartalar ko'rsatilgan bo'lsa, tugmani yashirish
+            if (visibleCards >= cards.length) {
+                showMoreBtn.classList.add('hidden');
+            }
+        });
+
+        // Tugma matnini tilga qarab yangilash
+        function updateShowMoreText(lang) {
+            if (showMoreBtn.dataset[lang]) {
+                showMoreBtn.textContent = showMoreBtn.dataset[lang];
+            }
+        }
+
+        // Til o'zgarganda tugma matnini yangilash
+        const originalSetLanguage = setLanguage;
+        setLanguage = function (lang) {
+            originalSetLanguage(lang);
+            updateShowMoreText(lang);
+        };
+    }
+});
+
 </script>
 </body>
 </html>
-
