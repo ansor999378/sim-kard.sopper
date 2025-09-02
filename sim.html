@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-ru="Магазин SIM-карт" data-uz="SIM-karta Do'koni" data-tj="Мағозаи SIM-картаҳо">SIM Card Shop</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6200EA',secondary:'#FF9800'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+<link rel="stylesheet" href="./sim.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<link rel="icon" href="">
+<link rel="stylesheet" href="./main.css">
+<link rel="icon" type="image/x-icon" href="./img/Frame 1 (15).png">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+
+  /* Umumiy video o'lchami */
+    .video-frame {
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 9 / 16;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Kichikroq video */
+    .video-small {
+      max-width: 250px;
+      opacity: 0.95;
+    }
+
+    /* Mobilda yonma-yon saqlash */
+    .top-videos {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    /* Kichik ekranda ham yonma-yon saqlash */
+    @media (max-width: 640px) {
+      .top-videos {
+        gap: 10px;
+      }
+      .video-frame {
+        max-width: 134px; /* 48% gacha */
+        width: 48%;
+      }
+    }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for the tab bar */
+    nav {
+      font-family: Arial, sans-serif;
+    }
+    .text-primary {
+      color: #636363; /* Default color for non-active tabs */
+    }
+    /* Hover and focus state for visual feedback */
+    a:hover,
+    a:focus {
+      color: #E452F7;
+      outline: none; /* Remove default focus outline */
+    }
+    a:hover svg path,
+    a:focus svg path {
+      fill: #E452F7;
+      stroke: #E452F7;
+    }
+    a:hover i,
+    a:focus i {
+      color: #E452F7;
+    }
+    /* Active state for the Home tab (or any pre-selected tab) */
+    .active {
+      color: #E452F7 !important;
+    }
+    .active svg path {
+      fill: #E452F7 !important;
+      stroke: #E452F7 !important;
+    }
+    .active i {
+      color: #E452F7 !important;
+    }
+
+
+
+
+
+
+
+.active {
+    color: #E452F7 !important;
+}
+.active svg path {
+    fill: #E452F7 !important;
+    stroke: #E452F7 !important;
+}
+.active i {
+    color: #E452F7 !important;
+}
+
+
+
+
+
+
+
+
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes glow {
+0% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
+50% { filter: drop-shadow(0 0 8px rgba(98, 0, 234, 0.6)); }
+100% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
+}
+.logo-animation {
+animation: glow 2s infinite;
+}
+.story-container::-webkit-scrollbar {
+display: none;
+}
+.operator-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.operator-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.yota-card { border-color: #0077FF; }
+.tele2-card { border-color: #000000; }
+.beeline-card { border-color: #FFCC00; }
+.mts-card { border-color: #E30611; }
+.megafon-card { border-color: #00B956; }
+body {
+padding-top: 64px;
+padding-bottom: 64px;
+}
+
+
+.button{
+    margin-right: 0px;
+    
+}
+
+.ru{
+    position: relative;
+ 
+    margin-right: 80px;
+    
+    width: 30px;
+    border-radius: 4px;
+     background-color: #d32b33;
+     color: rgb(255, 255, 255);
+}
+.ru:hover{
+
+    background-color: #a00000;
+    color: aliceblue;
+}
+
+ 
+ .uz{
+    position: absolute;
+    margin-right: 18px;
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 4px;
+    width: 28px;
+    margin-left: -66px;
+ }
+ .uz:hover{
+    background-color: #00178a;
+ }
+
+
+ .tj{
+    position: absolute;
+   background-color: rgb(83, 184, 25);
+   color: aliceblue;
+   width: 30PX;
+   border-radius: 4px;
+   margin-left: -20px;
+
+ }
+ .tj:hover{
+    background-color: #009a0d;
+ }
+
+ .button:hover .ru:checked ~ .custom-Ru{
+    background-color: #433b1c;
+ }
+
+
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header/Nav Bar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center mr-2 logo-animation">
+<span class="font-['Pacifico'] text-primary text-2xl">sim-card</span>
+</div>
+<h1 class="text-lg font-semibold" data-ru="SimConnect" data-uz="SimConnect" data-tj="SimConnect">SimConnect</h1>
+</div>
+<div class="flex items-center">
+<div class="flex mr-4">
+<div class="contaner">
+<div class="button">
+              <button class="ru" onclick="setLanguage('ru') ">Ru</button>
+              <button class="uz" onclick="setLanguage('uz')">Uz</button>
+              <button  class="tj" onclick="setLanguage('tj')">TJ</button>
+          </div>
+        </div>
+      </div>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center mr-2 cursor-pointer">
+<i class="ri-shopping-cart-line ri-lg"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-user-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+</header>
+           
+
+
+
+
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <div class="container mx-auto px-4 py-3 max-w-md">
+    <section class="mb-3">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol -->
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(1)">
+          <span class="font-medium text-sm" id="faq1-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq1-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar -->
+        <div class="mt-2 hidden" id="faq1-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq1-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) -->
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida -->
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol -->
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(2)">
+          <span class="font-medium text-sm" id="faq2-q" data-ru="Как можно получить снилс?"  data-tj="Чӣ тавр ман метавонам SNILS гирам? " data-uz="Чӣ тавр ман метавонам SNILS гирам?"></span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq2-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar -->
+        <div class="mt-2 hidden" id="faq2-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq2-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) -->
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/русский язкий.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/uzbek smilis.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida -->
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/TOJIK SNILIS.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+         <!--
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol 
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(3)">
+          <span class="font-medium text-sm" id="faq3-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq3-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq3-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq3-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol 
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(4)">
+          <span class="font-medium text-sm" id="faq4-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq4-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq4-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq4-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol -
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(5)">
+          <span class="font-medium text-sm" id="faq5-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq5-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq5-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq5-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol 
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(6)">
+          <span class="font-medium text-sm" id="faq6-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq6-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq6-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq6-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol 
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(7)">
+          <span class="font-medium text-sm" id="faq7-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq7-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq7-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq7-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <!-- FAQ: Savol 
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(8)">
+          <span class="font-medium text-sm" id="faq8-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq8-icon"></i>
+        </button>
+
+        <!-- Javob: Videolar 
+        <div class="mt-2 hidden" id="faq8-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq8-a">Следите за видео внимательно!</p>
+
+          <!-- Birinchi 2 ta video: yonma-yon (ham telefonlarda) 
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <!-- Uchinchi video: ularning pastida 
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+     
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(9)">
+          <span class="font-medium text-sm" id="faq9-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq9-icon"></i>
+        </button>
+
+        
+        <div class="mt-2 hidden" id="faq9-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq9-a">Следите за видео внимательно!</p>
+
+          
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-3 mt-1">
+      <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        
+        <button class="flex justify-between items-center w-full text-left cursor-pointer focus:outline-none" onclick="toggleFaq(10)">
+          <span class="font-medium text-sm" id="faq10-q" data-ru="Как регистрировать сим карта на биометрии?"  data-tj="Чӣ тавр симкортро бо истифода аз биометрия сабти ном кардан мумкин аст? " data-uz="Biometrik ma'lumotlardan foydalangan holda SIM-kartani qanday ro'yxatdan o'tkazish kerak?">Как регистрировать сим карта на биометрии?</span>
+          <i class="ri-arrow-down-s-line text-lg text-gray-500" id="faq10-icon"></i>
+        </button>
+
+        <div class="mt-2 hidden" id="faq10-a-container">
+          <p class="text-sm text-gray-600 mb-3 text-center" id="faq10-a">Следите за видео внимательно!</p>
+
+          <div class="top-videos flex mb-3">
+            <video class="video-frame" controls>
+              <source src="./img/Видео WhatsApp 2025-08-26 в 00.11.33_a7ff7ced.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+
+            <video class="video-frame" controls>
+              <source src="./img/video2.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+
+          <div class="flex justify-center mt-2">
+            <video class="video-frame video-small" controls>
+              <source src="./img/video3.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  -->
+ <!-- Tab Bar -->
+  <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
+    <div class="grid grid-cols-5 h-16">
+      <a href="./index.html" class="flex flex-col items-center justify-center text-primary cursor-pointer active">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-home-5-fill ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Главная" data-uz="Bosh" data-tj="Асосӣ">Home</span>
+      </a>
+      <a href="./sim.html" target="_blank" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+            <path fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5v2a1 1 0 0 1-1 1h-2m0-13h2a1 1 0 0 1 1 1v2m-13 0v-2a1 1 0 0 1 1-1h2m0 13h-2a1 1 0 0 1-1-1v-2m3.5-7v2m6-2v2m-3-1V8H5.5m-1 2a3.63 3.63 0 0 0 5 0"/>
+          </svg>
+        </div>
+        <span class="text-xs mt-1" data-ru="SIM-карты" data-uz="SIM-kartalar" data-tj="SIM-картаҳо">SIM Cards</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-shopping-cart-line ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Корзина" data-uz="Savat" data-tj="Корзина">Cart</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024">
+            <path fill="#696969" d="M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32m-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96z"/>
+          </svg>
+        </div>
+        <span class="text-xs mt-1" data-ru="Истории" data-uz="Hikoyalar" data-tj="Қиссаҳо">Stories</span>
+      </a>
+      <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-user-line ri-lg"></i>
+        </div>
+        <span class="text-xs mt-1" data-ru="Профиль" data-uz="Profil" data-tj="Профил">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+<!-- Emergency Hotline Button -->
+<div class="fixed bottom-20 right-4 z-40">
+<a href="tel:89961956666" id="hotlineBtn" class="relative group">
+<div class="absolute -inset-2 bg-red-500 rounded-full opacity-75 group-hover:opacity-100 blur transition-opacity"></div>
+<button class="relative w-12 h-12 rounded-full bg-red-600 text-white shadow-lg flex items-center justify-center cursor-pointer animate-pulse group-hover:w-auto group-hover:px-4 transition-all duration-300">
+<i class="ri-customer-service-2-fill ri-lg group-hover:hidden"></i>
+<span class="hidden group-hover:inline whitespace-nowrap">8 996 195 66 66</span>
+</button>
+</a>
+</div>
+
+<!-- AI Assistant Modal -->
+<div id="aiAssistantModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-end justify-center">
+<div class="bg-white rounded-t-xl w-full max-w-md p-4 animate-slide-up">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-semibold" data-ru="AI Ассистент" data-uz="AI Yordamchi" data-tj="Ёрдамчии AI">AI Assistant</h3>
+<button id="closeAssistantBtn" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="bg-gray-100 rounded-lg p-3 mb-4 max-h-80 overflow-y-auto">
+<div class="flex mb-3">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-2 flex-shrink-0">
+<i class="ri-robot-line text-white"></i>
+</div>
+<div class="bg-white rounded-lg p-2 text-sm" data-ru="Привет! Я ваш помощник SimConnect. Чем могу помочь сегодня?" data-uz="Salom! Men sizning SimConnect yordamchingizman. Bugun sizga qanday yordam bera olaman?" data-tj="Салом! Ман ёрдамчии SimConnect-и шумо ҳастам. Имрӯз ба шумо чӣ гуна ёрдам диҳам метавонам?">
+Hello! I'm your SimConnect assistant. How can I help you today?
+</div>
+</div>
+</div>
+<div class="flex">
+<input type="text" placeholder="Ask something..." class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:border-primary" data-ru="Задайте вопрос..." data-uz="Savol bering..." data-tj="Савол пурсед...">
+<button class="bg-primary text-white px-4 py-2 rounded-r-lg cursor-pointer">
+<i class="ri-send-plane-fill"></i>
+</button>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Scripts -->
+<script> 
+
+
+
+
+
+    function toggleFaq(id) {
+      const container = document.getElementById(`faq${id}-a-container`);
+      const icon = document.getElementById(`faq${id}-icon`);
+      
+      container.classList.toggle('hidden');
+      icon.classList.toggle('ri-arrow-down-s-line');
+      icon.classList.toggle('ri-arrow-up-s-line');
+    }
+    
+    // Set initial language text
+    document.querySelectorAll('[id^="faq"][id$="-q"]').forEach(el => {
+      el.textContent = el.getAttribute('data-ru');
+    });
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.replace(/^\/|\/$/g, ''); // Joriy sahifa yo'lini tozalash
+    const activeTab = localStorage.getItem('activeTab')?.replace(/^\/|\/$/g, ''); // localStorage'dan tozalangan qiymat
+
+    // Barcha tablardan active sinfini olib tashlash
+    tabs.forEach(t => {
+        t.classList.remove('active', 'text-primary');
+        t.querySelectorAll('i, svg path').forEach(el => {
+            el.style.color = '';
+            el.style.fill = '';
+            el.style.stroke = '';
+        });
+    });
+
+    // Joriy sahifa yo'liga mos keladigan tabni faol qilish
+    tabs.forEach(tab => {
+        let tabHref = tab.getAttribute('href')?.replace(/^.\//, ''); // ./ ni olib tashlash
+        if (tabHref === currentPage || (activeTab && tabHref === activeTab)) {
+            tab.classList.add('active');
+            tab.querySelectorAll('i, svg path').forEach(el => {
+                el.style.color = '#E452F7';
+                el.style.fill = '#E452F7';
+                el.style.stroke = '#E452F7';
+            });
+        }
+    });
+
+    // Tab bosilganda faol holatni yangilash
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => {
+                t.classList.remove('active', 'text-primary');
+                t.querySelectorAll('i, svg path').forEach(el => {
+                    el.style.color = '';
+                    el.style.fill = '';
+                    el.style.stroke = '';
+                });
+            });
+            tab.classList.add('active');
+            tab.querySelectorAll('i, svg path').forEach(el => {
+                el.style.color = '#E452F7';
+                el.style.fill = '#E452F7';
+                el.style.stroke = '#E452F7';
+            });
+            let tabHref = tab.getAttribute('href')?.replace(/^.\//, '');
+            localStorage.setItem('activeTab', tabHref);
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('phoneSearch');
+  const operatorCards = document.querySelectorAll('.operator-card');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      const searchValue = this.value.trim().replace(/\D/g, ''); // Remove non-numeric characters
+      operatorCards.forEach(card => {
+        const phoneNumberElement = card.querySelector('.bg-gray-50 p.text-xl');
+        if (phoneNumberElement) {
+          const phoneNumber = phoneNumberElement.textContent.trim().replace(/\D/g, ''); // Remove non-numeric characters
+          if (searchValue === '' || phoneNumber.includes(searchValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  }
+
+  // Ensure search input placeholder updates with language change
+  function updateSearchPlaceholder(lang) {
+    if (searchInput && searchInput.dataset[lang]) {
+      searchInput.placeholder = searchInput.dataset[lang];
+    }
+  }
+
+  // Modify setLanguage to update search placeholder
+  const originalSetLanguage = setLanguage;
+  setLanguage = function (lang) {
+    originalSetLanguage(lang);
+    updateSearchPlaceholder(lang);
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('nav a');
+  const activeTab = localStorage.getItem('activeTab');
+  if (activeTab) {
+    tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+    document.querySelector(`a[href="${activeTab}"]`)?.classList.add('active');
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+      tab.classList.add('active');
+      localStorage.setItem('activeTab', tab.getAttribute('href'));
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Language switching functionality
+function setLanguage(lang) {
+// Set html lang attribute
+document.documentElement.lang = lang;
+  
+// Update all elements with data attributes
+document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
+if (element.dataset[lang]) {
+if (element.tagName === 'INPUT' && element.placeholder) {
+element.placeholder = element.dataset[lang];
+} else if (element.tagName === 'TITLE') {
+document.title = element.dataset[lang];
+} else {
+element.textContent = element.dataset[lang];
+}
+}
+});
+
+// Update buttons with inner spans
+document.querySelectorAll('button').forEach(button => {
+if (button.dataset[lang]) {
+button.innerHTML = button.dataset[lang];
+}
+});
+
+// Update links with inner spans
+document.querySelectorAll('a.addcart').forEach(link => {
+if (link.dataset[lang]) {
+link.textContent = link.dataset[lang];
+}
+});
+
+// Save language preference to localStorage
+localStorage.setItem('preferredLanguage', lang);
+}
+
+// Check for saved language preference
+document.addEventListener('DOMContentLoaded', function() {
+const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
+setLanguage(savedLang);
+});
+
+// Rest of your existing scripts
+document.addEventListener('DOMContentLoaded', function() {
+const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+const aiAssistantModal = document.getElementById('aiAssistantModal');
+const closeAssistantBtn = document.getElementById('closeAssistantBtn');
+if (aiAssistantBtn) {
+aiAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+}
+if (closeAssistantBtn) {
+closeAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+}
+
+const storyCircles = document.querySelectorAll('.story-container .rounded-full');
+const storyUpload = document.getElementById('storyUpload');
+
+function createFullscreenViewer(mediaUrl, isVideo) {
+const viewer = document.createElement('div');
+viewer.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center';
+
+const closeBtn = document.createElement('button');
+closeBtn.className = 'absolute top-4 right-4 text-white z-50 w-10 h-10 flex items-center justify-center';
+closeBtn.innerHTML = '<i class="ri-close-line ri-2x"></i>';
+
+const media = isVideo ? document.createElement('video') : document.createElement('img');
+media.src = mediaUrl;
+media.className = 'max-w-full max-h-full object-contain';
+
+if (isVideo) {
+media.controls = true;
+media.autoplay = true;
+media.muted = false;
+media.playsInline = true;
+media.volume = 1;
+}
+
+viewer.appendChild(closeBtn);
+viewer.appendChild(media);
+document.body.appendChild(viewer);
+
+closeBtn.addEventListener('click', () => {
+if (isVideo) {
+media.pause();
+}
+document.body.removeChild(viewer);
+});
+
+if (isVideo) {
+media.addEventListener('ended', () => {
+document.body.removeChild(viewer);
+});
+}
+}
+
+if (storyCircles) {
+storyCircles.forEach(circle => {
+circle.addEventListener('click', function() {
+if (!this.contains(storyUpload)) {
+const mediaElement = this.querySelector('img, video');
+if (mediaElement) {
+const isVideo = mediaElement.tagName.toLowerCase() === 'video';
+createFullscreenViewer(mediaElement.src, isVideo);
+}
+}
+});
+});
+
+if (storyUpload) {   
+storyUpload.addEventListener('change', function(e) {
+const file = e.target.files[0];
+if (file) {
+if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+const isVideo = file.type.startsWith('video/');
+const mediaUrl = URL.createObjectURL(file);
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = isVideo ? 'Video uploaded successfully!' : 'Photo uploaded successfully!';
+document.body.appendChild(toast);
+setTimeout(() => document.body.removeChild(toast), 2000);
+
+const newStory = document.createElement('div');
+newStory.className = 'flex-none w-20 mx-1';
+newStory.innerHTML = `
+<div class="relative">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1 cursor-pointer">
+${isVideo ? 
+`<video src="${mediaUrl}" class="w-full h-full object-cover rounded-full">
+<div class="absolute top-0 right-0 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-video-fill text-white text-xs"></i>
+</div>` 
+: `<img src="${mediaUrl}" alt="Your Story" class="w-full h-full object-cover rounded-full">`}
+</div>
+<p class="text-xs text-center truncate">Your Story</p>
+</div>
+`;
+
+const storyElement = newStory.querySelector('.rounded-full');
+storyElement.addEventListener('click', () => {
+createFullscreenViewer(mediaUrl, isVideo);
+});
+
+const addStoryButton = storyUpload.closest('.flex-none');
+addStoryButton.parentNode.insertBefore(newStory, addStoryButton);
+}
+}
+});
+}
+}
+
+const addToCartButtons = document.querySelectorAll('button:not(#aiAssistantBtn):not(#closeAssistantBtn)');
+const cartTab = document.querySelector('nav a:nth-child(3)');
+let cartCount = 0;
+
+if (addToCartButtons && cartTab) {
+addToCartButtons.forEach(button => {
+if (button.textContent.trim() === 'Add to Cart' || 
+    button.textContent.trim() === 'В корзину' || 
+    button.textContent.trim() === 'Savatga' || 
+    button.textContent.trim() === 'Ба корзина') {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+cartCount++;
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = 'Added to cart!';
+document.body.appendChild(toast);
+
+const cartIcon = cartTab.querySelector('.w-6');
+if (!cartIcon.querySelector('span')) {
+const badge = document.createElement('span');
+badge.className = 'absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full';
+badge.textContent = cartCount;
+cartIcon.style.position = 'relative';
+cartIcon.appendChild(badge);
+} else {
+cartIcon.querySelector('span').textContent = cartCount;
+}
+
+setTimeout(() => {
+document.body.removeChild(toast);
+}, 2000);
+});
+}
+});
+}
+});
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('phoneSearch');
+  const operatorCards = document.querySelectorAll('.operator-card');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      const searchValue = this.value.trim().replace(/\D/g, ''); // Remove non-numeric characters
+      operatorCards.forEach(card => {
+        const phoneNumberElement = card.querySelector('.bg-gray-50 p.text-xl');
+        if (phoneNumberElement) {
+          const phoneNumber = phoneNumberElement.textContent.trim().replace(/\D/g, ''); // Remove non-numeric characters
+          if (searchValue === '' || phoneNumber.includes(searchValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  }
+
+  // Ensure search input placeholder updates with language change
+  function updateSearchPlaceholder(lang) {
+    if (searchInput && searchInput.dataset[lang]) {
+      searchInput.placeholder = searchInput.dataset[lang];
+    }
+  }
+
+  // Modify setLanguage to update search placeholder
+  const originalSetLanguage = setLanguage;
+  setLanguage = function (lang) {
+    originalSetLanguage(lang);
+    updateSearchPlaceholder(lang);
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('nav a');
+  const activeTab = localStorage.getItem('activeTab');
+  if (activeTab) {
+    tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+    document.querySelector(`a[href="${activeTab}"]`)?.classList.add('active');
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+      tab.classList.add('active');
+      localStorage.setItem('activeTab', tab.getAttribute('href'));
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Language switching functionality
+function setLanguage(lang) {
+// Set html lang attribute
+document.documentElement.lang = lang;
+  
+// Update all elements with data attributes
+document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
+if (element.dataset[lang]) {
+if (element.tagName === 'INPUT' && element.placeholder) {
+element.placeholder = element.dataset[lang];
+} else if (element.tagName === 'TITLE') {
+document.title = element.dataset[lang];
+} else {
+element.textContent = element.dataset[lang];
+}
+}
+});
+
+// Update buttons with inner spans
+document.querySelectorAll('button').forEach(button => {
+if (button.dataset[lang]) {
+button.innerHTML = button.dataset[lang];
+}
+});
+
+// Update links with inner spans
+document.querySelectorAll('a.addcart').forEach(link => {
+if (link.dataset[lang]) {
+link.textContent = link.dataset[lang];
+}
+});
+
+// Save language preference to localStorage
+localStorage.setItem('preferredLanguage', lang);
+}
+
+// Check for saved language preference
+document.addEventListener('DOMContentLoaded', function() {
+const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
+setLanguage(savedLang);
+});
+
+// Rest of your existing scripts
+document.addEventListener('DOMContentLoaded', function() {
+const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+const aiAssistantModal = document.getElementById('aiAssistantModal');
+const closeAssistantBtn = document.getElementById('closeAssistantBtn');
+if (aiAssistantBtn) {
+aiAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+}
+if (closeAssistantBtn) {
+closeAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+}
+
+const storyCircles = document.querySelectorAll('.story-container .rounded-full');
+const storyUpload = document.getElementById('storyUpload');
+
+function createFullscreenViewer(mediaUrl, isVideo) {
+const viewer = document.createElement('div');
+viewer.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center';
+
+const closeBtn = document.createElement('button');
+closeBtn.className = 'absolute top-4 right-4 text-white z-50 w-10 h-10 flex items-center justify-center';
+closeBtn.innerHTML = '<i class="ri-close-line ri-2x"></i>';
+
+const media = isVideo ? document.createElement('video') : document.createElement('img');
+media.src = mediaUrl;
+media.className = 'max-w-full max-h-full object-contain';
+
+if (isVideo) {
+media.controls = true;
+media.autoplay = true;
+media.muted = false;
+media.playsInline = true;
+media.volume = 1;
+}
+
+viewer.appendChild(closeBtn);
+viewer.appendChild(media);
+document.body.appendChild(viewer);
+
+closeBtn.addEventListener('click', () => {
+if (isVideo) {
+media.pause();
+}
+document.body.removeChild(viewer);
+});
+
+if (isVideo) {
+media.addEventListener('ended', () => {
+document.body.removeChild(viewer);
+});
+}
+}
+
+if (storyCircles) {
+storyCircles.forEach(circle => {
+circle.addEventListener('click', function() {
+if (!this.contains(storyUpload)) {
+const mediaElement = this.querySelector('img, video');
+if (mediaElement) {
+const isVideo = mediaElement.tagName.toLowerCase() === 'video';
+createFullscreenViewer(mediaElement.src, isVideo);
+}
+}
+});
+});
+
+if (storyUpload) {   
+storyUpload.addEventListener('change', function(e) {
+const file = e.target.files[0];
+if (file) {
+if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+const isVideo = file.type.startsWith('video/');
+const mediaUrl = URL.createObjectURL(file);
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = isVideo ? 'Video uploaded successfully!' : 'Photo uploaded successfully!';
+document.body.appendChild(toast);
+setTimeout(() => document.body.removeChild(toast), 2000);
+
+const newStory = document.createElement('div');
+newStory.className = 'flex-none w-20 mx-1';
+newStory.innerHTML = `
+<div class="relative">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1 cursor-pointer">
+${isVideo ? 
+`<video src="${mediaUrl}" class="w-full h-full object-cover rounded-full">
+<div class="absolute top-0 right-0 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-video-fill text-white text-xs"></i>
+</div>` 
+: `<img src="${mediaUrl}" alt="Your Story" class="w-full h-full object-cover rounded-full">`}
+</div>
+<p class="text-xs text-center truncate">Your Story</p>
+</div>
+`;
+
+const storyElement = newStory.querySelector('.rounded-full');
+storyElement.addEventListener('click', () => {
+createFullscreenViewer(mediaUrl, isVideo);
+});
+
+const addStoryButton = storyUpload.closest('.flex-none');
+addStoryButton.parentNode.insertBefore(newStory, addStoryButton);
+}
+}
+});
+}
+}
+
+const addToCartButtons = document.querySelectorAll('button:not(#aiAssistantBtn):not(#closeAssistantBtn)');
+const cartTab = document.querySelector('nav a:nth-child(3)');
+let cartCount = 0;
+
+if (addToCartButtons && cartTab) {
+addToCartButtons.forEach(button => {
+if (button.textContent.trim() === 'Add to Cart' || 
+    button.textContent.trim() === 'В корзину' || 
+    button.textContent.trim() === 'Savatga' || 
+    button.textContent.trim() === 'Ба корзина') {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+cartCount++;
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = 'Added to cart!';
+document.body.appendChild(toast);
+
+const cartIcon = cartTab.querySelector('.w-6');
+if (!cartIcon.querySelector('span')) {
+const badge = document.createElement('span');
+badge.className = 'absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full';
+badge.textContent = cartCount;
+cartIcon.style.position = 'relative';
+cartIcon.appendChild(badge);
+} else {
+cartIcon.querySelector('span').textContent = cartCount;
+}
+
+setTimeout(() => {
+document.body.removeChild(toast);
+}, 2000);
+});
+}
+});
+}
+});
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+/* CSS for the tab bar */
+    nav {
+      font-family: Arial, sans-serif;
+    }
+    .text-primary {
+      color: #636363; /* Default color for non-active tabs */
+    }
+    /* Hover and focus state for visual feedback */
+    a:hover,
+    a:focus {
+      color: #E452F7;
+      outline: none; /* Remove default focus outline */
+    }
+    a:hover svg path,
+    a:focus svg path {
+      fill: #E452F7;
+      stroke: #E452F7;
+    }
+    a:hover i,
+    a:focus i {
+      color: #E452F7;
+    }
+    /* Active state for the Home tab (or any pre-selected tab) */
+    .active {
+      color: #E452F7 !important;
+    }
+    .active svg path {
+      fill: #E452F7 !important;
+      stroke: #E452F7 !important;
+    }
+    .active i {
+      color: #E452F7 !important;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes glow {
+0% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
+50% { filter: drop-shadow(0 0 8px rgba(98, 0, 234, 0.6)); }
+100% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
+}
+.logo-animation {
+animation: glow 2s infinite;
+}
+.story-container::-webkit-scrollbar {
+display: none;
+}
+.operator-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.operator-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.yota-card { border-color: #0077FF; }
+.tele2-card { border-color: #000000; }
+.beeline-card { border-color: #FFCC00; }
+.mts-card { border-color: #E30611; }
+.megafon-card { border-color: #00B956; }
+body {
+padding-top: 64px;
+padding-bottom: 64px;
+}
+
+
+.button{
+    margin-right: 0px;
+    
+}
+
+.ru{
+    position: relative;
+ 
+    margin-right: 80px;
+    
+    width: 30px;
+    border-radius: 4px;
+     background-color: #d32b33;
+     color: rgb(255, 255, 255);
+}
+.ru:hover{
+
+    background-color: #a00000;
+    color: aliceblue;
+}
+
+ 
+ .uz{
+    position: absolute;
+    margin-right: 18px;
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 4px;
+    width: 28px;
+    margin-left: -66px;
+ }
+ .uz:hover{
+    background-color: #00178a;
+ }
+
+
+ .tj{
+    position: absolute;
+   background-color: rgb(83, 184, 25);
+   color: aliceblue;
+   width: 30PX;
+   border-radius: 4px;
+   margin-left: -20px;
+
+ }
+ .tj:hover{
+    background-color: #009a0d;
+ }
+
+ .button:hover .ru:checked ~ .custom-Ru{
+    background-color: #433b1c;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Yangi qo'shilgan qidiruv qismi uchun stil */
+.search-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+.search-input-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #6200EA;
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    font-size: 18px;
+}
+
+/* Karta konteyneri uchun stil */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 12px;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('nav a');
+  const activeTab = localStorage.getItem('activeTab');
+  if (activeTab) {
+    tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+    document.querySelector(`a[href="${activeTab}"]`)?.classList.add('active');
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active', 'text-primary'));
+      tab.classList.add('active');
+      localStorage.setItem('activeTab', tab.getAttribute('href'));
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Language switching functionality
+function setLanguage(lang) {
+// Set html lang attribute
+document.documentElement.lang = lang;
+  
+// Update all elements with data attributes
+document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
+if (element.dataset[lang]) {
+if (element.tagName === 'INPUT' && element.placeholder) {
+element.placeholder = element.dataset[lang];
+} else if (element.tagName === 'TITLE') {
+document.title = element.dataset[lang];
+} else {
+element.textContent = element.dataset[lang];
+}
+}
+});
+
+// Update buttons with inner spans
+document.querySelectorAll('button').forEach(button => {
+if (button.dataset[lang]) {
+button.innerHTML = button.dataset[lang];
+}
+});
+
+// Update links with inner spans
+document.querySelectorAll('a.addcart').forEach(link => {
+if (link.dataset[lang]) {
+link.textContent = link.dataset[lang];
+}
+});
+
+// Save language preference to localStorage
+localStorage.setItem('preferredLanguage', lang);
+}
+
+// Check for saved language preference
+document.addEventListener('DOMContentLoaded', function() {
+const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
+setLanguage(savedLang);
+});
+
+// Rest of your existing scripts
+document.addEventListener('DOMContentLoaded', function() {
+const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+const aiAssistantModal = document.getElementById('aiAssistantModal');
+const closeAssistantBtn = document.getElementById('closeAssistantBtn');
+if (aiAssistantBtn) {
+aiAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+}
+if (closeAssistantBtn) {
+closeAssistantBtn.addEventListener('click', function() {
+aiAssistantModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+}
+
+const storyCircles = document.querySelectorAll('.story-container .rounded-full');
+const storyUpload = document.getElementById('storyUpload');
+
+function createFullscreenViewer(mediaUrl, isVideo) {
+const viewer = document.createElement('div');
+viewer.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center';
+
+const closeBtn = document.createElement('button');
+closeBtn.className = 'absolute top-4 right-4 text-white z-50 w-10 h-10 flex items-center justify-center';
+closeBtn.innerHTML = '<i class="ri-close-line ri-2x"></i>';
+
+const media = isVideo ? document.createElement('video') : document.createElement('img');
+media.src = mediaUrl;
+media.className = 'max-w-full max-h-full object-contain';
+
+if (isVideo) {
+media.controls = true;
+media.autoplay = true;
+media.muted = false;
+media.playsInline = true;
+media.volume = 1;
+}
+
+viewer.appendChild(closeBtn);
+viewer.appendChild(media);
+document.body.appendChild(viewer);
+
+closeBtn.addEventListener('click', () => {
+if (isVideo) {
+media.pause();
+}
+document.body.removeChild(viewer);
+});
+
+if (isVideo) {
+media.addEventListener('ended', () => {
+document.body.removeChild(viewer);
+});
+}
+}
+
+if (storyCircles) {
+storyCircles.forEach(circle => {
+circle.addEventListener('click', function() {
+if (!this.contains(storyUpload)) {
+const mediaElement = this.querySelector('img, video');
+if (mediaElement) {
+const isVideo = mediaElement.tagName.toLowerCase() === 'video';
+createFullscreenViewer(mediaElement.src, isVideo);
+}
+}
+});
+});
+
+if (storyUpload) {
+storyUpload.addEventListener('change', function(e) {
+const file = e.target.files[0];
+if (file) {
+if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+const isVideo = file.type.startsWith('video/');
+const mediaUrl = URL.createObjectURL(file);
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = isVideo ? 'Video uploaded successfully!' : 'Photo uploaded successfully!';
+document.body.appendChild(toast);
+setTimeout(() => document.body.removeChild(toast), 2000);
+
+const newStory = document.createElement('div');
+newStory.className = 'flex-none w-20 mx-1';
+newStory.innerHTML = `
+<div class="relative">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1 cursor-pointer">
+${isVideo ? 
+`<video src="${mediaUrl}" class="w-full h-full object-cover rounded-full">
+<div class="absolute top-0 right-0 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-video-fill text-white text-xs"></i>
+</div>` 
+: `<img src="${mediaUrl}" alt="Your Story" class="w-full h-full object-cover rounded-full">`}
+</div>
+<p class="text-xs text-center truncate">Your Story</p>
+</div>
+`;
+
+const storyElement = newStory.querySelector('.rounded-full');
+storyElement.addEventListener('click', () => {
+createFullscreenViewer(mediaUrl, isVideo);
+});
+
+const addStoryButton = storyUpload.closest('.flex-none');
+addStoryButton.parentNode.insertBefore(newStory, addStoryButton);
+}
+}
+});
+}
+}
+
+const addToCartButtons = document.querySelectorAll('button:not(#aiAssistantBtn):not(#closeAssistantBtn)');
+const cartTab = document.querySelector('nav a:nth-child(3)');
+let cartCount = 0;
+
+if (addToCartButtons && cartTab) {
+addToCartButtons.forEach(button => {
+if (button.textContent.trim() === 'Add to Cart' || 
+    button.textContent.trim() === 'В корзину' || 
+    button.textContent.trim() === 'Savatga' || 
+    button.textContent.trim() === 'Ба корзина') {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+cartCount++;
+
+const toast = document.createElement('div');
+toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+toast.textContent = 'Added to cart!';
+document.body.appendChild(toast);
+
+const cartIcon = cartTab.querySelector('.w-6');
+if (!cartIcon.querySelector('span')) {
+const badge = document.createElement('span');
+badge.className = 'absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full';
+badge.textContent = cartCount;
+cartIcon.style.position = 'relative';
+cartIcon.appendChild(badge);
+} else {
+cartIcon.querySelector('span').textContent = cartCount;
+}
+
+setTimeout(() => {
+document.body.removeChild(toast);
+}, 2000);
+});
+}
+});
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+-->
