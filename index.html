@@ -944,18 +944,18 @@
                         setTimeout(() => document.body.removeChild(toast), 2000);
                         return;
                     }
-                    const name = document.getElementById('customerName').value;
+                  const name = document.getElementById('customerName').value;
                     const phone = document.getElementById('customerPhone').value;
                     const address = document.getElementById('customerAddress').value;
-                    let message = `*Yangi buyurtma*\n\n`;
-                    message += `*Ism:* ${name}\n`;
-                    message += `*Telefon:* ${phone}\n`;
-                    message += `*Manzil:* ${address}\n\n`;
-                    message += `*Tanlangan raqamlar:*\n`;
+                    let message = `*Новый заказ*\n\n`;
+                    message += `*Имя:* ${name}\n`;
+                    message += `*Телефон:* ${phone}\n`;
+                    message += `*Адрес:* ${address}\n\n`;
+                    message += `*Выбранные номера:*\n`;
                     cart.forEach(item => {
                         message += `- ${item.name}: ${item.number} (${item.price})\n`;
                     });
-                    message += `\n*Jami:* ${cartTotalEl.innerText}`;
+                    message += `\n*Общий:* ${cartTotalEl.innerText}`;
                     const whatsappURL = `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappURL, '_blank');
                     cart = [];
@@ -1111,3 +1111,4 @@
     </script>
 </body>
 </html>
+
