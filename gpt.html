@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>3D SIM Carousel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    transition: background 0.6s ease;
+  }
+  .carousel-3d {
+    perspective: 1000px;
+    perspective-origin: 50% 40%;
+  }
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transform-style: preserve-3d;
+    will-change: transform;
+    cursor: grab;
+  }
+  .card-3d {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 180px;
+    height: 130px;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    transition: transform 0.4s ease;
+  }
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(15,23,42,0.15);
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 3px solid transparent;
+  }
+  .btn-savat {
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .dragging { cursor: grabbing !important; }
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+
+<section class="w-full max-w-md">
+  <div class="carousel-3d">
+    <div id="stage" class="stage mx-auto"></div>
+  </div>
+</section>
+
+<script>
+const cardsData = [
+  { id: 'yota', title: 'Yota Безлимит', price: '₽29.99', phone: '+7 (999) 555-00-11', color: '#0077FF', tag: 'VIP raqam' },
+ 
+  { id: 'mts', title: 'MTS 200ГБ', price: '₽27.99', phone: '+7 (916) 218 60-62', color: '#E30611', tag: 'Lucky Number' },
+  { id: 'beeline', title: 'Beeline 50Гб', price: '₽26.99', phone: '+7 (903) 123 45-67', color: '#FFCC00', tag: 'Gold Series' },
+
+  { id: 'megafon', title: 'Megafon 50Гб', price: '₽25.99', phone: '+7 (999) 384 72-71', color: '#00B956', tag: 'Business Series' },
+
+];
+
+let radius = 230;
+const stage = document.getElementById('stage');
+let rotateY = 0, dragging = false, lastX = 0, velocity = 0, lastTime = null;
+
+function createCards() {
+  const n = cardsData.length;
+  for (let i = 0; i < n; i++) {
+    const d = cardsData[i];
+    const angle = (360 / n) * i;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'card-3d';
+    wrapper.dataset.color = d.color;
+    wrapper.style.transform = `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`;
+    wrapper.innerHTML = `
+      <div class="card-inner" style="border-top-color:${d.color}">
+        <div class="flex justify-between items-center">
+          <h3 class="font-medium text-xs">${d.title}</h3>
+          <span class="font-bold text-xs" style="color:${d.color}">${d.price}</span>
+        </div>
+        <p class="text-sm font-bold text-center">${d.phone}</p>
+        <div class="flex justify-between items-center text-xs">
+          <span>${d.tag}</span>
+          <button class="btn-savat" style="background:${d.color};color:#fff;">Savatga</button>
+        </div>
+      </div>
+    `;
+    stage.appendChild(wrapper);
+  }
+}
+
+function animate(ts) {
+  if (!lastTime) lastTime = ts;
+  const dt = (ts - lastTime) / 1000;
+  lastTime = ts;
+
+  if (dragging) {
+    rotateY += velocity * dt * 0.1;
+    velocity *= 0.9;
+  }
+
+  stage.style.transform = `rotateX(-5deg) rotateY(${rotateY}deg)`;
+  updateBackground();
+  requestAnimationFrame(animate);
+}
+
+function updateBackground() {
+  const cards = [...stage.children];
+  let minDiff = Infinity, activeColor = '#fff';
+  cards.forEach(card => {
+    const m = card.style.transform.match(/rotateY\((-?\d+\.?\d*)deg\)/);
+    if (m) {
+      const angle = (parseFloat(m[1]) + rotateY) % 360;
+      const diff = Math.abs(angle % 360);
+      if (diff < minDiff) {
+        minDiff = diff;
+        activeColor = card.dataset.color;
+      }
+    }
+  });
+  document.body.style.background = hexToRgba(activeColor,0.15);
+}
+
+function hexToRgba(hex, alpha=1){
+  const c = hex.replace('#','');
+  const bigint = parseInt(c, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function addDrag() {
+  let startX = 0, startRot = 0;
+  stage.addEventListener('pointerdown', e => {
+    dragging = true;
+    stage.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    startRot = rotateY;
+    lastX = e.clientX;
+    velocity = 0;
+    document.body.classList.add('dragging');
+  });
+  window.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    rotateY = startRot + dx * 0.4;
+    velocity = e.clientX - lastX;
+    lastX = e.clientX;
+  });
+  window.addEventListener('pointerup', () => {
+    dragging = false;
+    document.body.classList.remove('dragging');
+  });
+}
+
+createCards();
+addDrag();
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>
