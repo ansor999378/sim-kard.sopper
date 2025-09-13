@@ -29,6 +29,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="./gpt.html">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSF7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -38,6 +39,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
     <style>
+         .las{
+            color: #001476;
+
+         }
+
+
+        .font-bold{
+            font-size: x-large;
+          
+        }
+
+        .rara{
+                position: absolute;
+                margin-left: 270px;
+             
+        }
         .search-container {
             width: 100%;
             max-width: 1200px;
@@ -355,7 +372,7 @@
             <button class="text-primary text-sm font-medium cursor-pointer" data-ru="Посмотреть все" data-uz="Hammasini ko'rish" data-tj="Ҳамаро дидан">View All</button>
         </div>
         <div class="flex flex-col gap-3">
-            <!-- Yota Card -->
+              <!-- Yota Card -->
             <div class="operator-card yota-card bg-white rounded-lg shadow-sm border-t-4 p-4">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
@@ -738,7 +755,12 @@
                     </div>
                 </div>
                 <form id="customerForm">
-                    <h4 class="font-semibold text-gray-700 pt-4 border-t" data-ru="Данные для доставки:" data-uz="Yetkazib berish uchun ma'lumot:" data-tj="Маълумот барои таҳвил:">Yetkazib berish uchun ma'lumot:</h4>
+                    <h4 class="font-semibold text-gray-700 pt-4 border-t" data-ru="Данные для доставки:" data-uz="Yetkazib berish uchun ma'lumot:" data-tj="Маълумот барои таҳвил:">Yetkazib berish uchun ma'lumot:</h4> 
+                  <img  class="rara" src="./img/free-icon-delivery-7910028 (1) 1 (1).svg "  alt="">
+<div class="las">
+                            <h4 class="font-bold" > Даставка Бесплатная</h4>
+
+</div>                   
                     <div class="mt-4 grid grid-cols-1 gap-4">
                         <div>
                             <label for="customerName" class="text-sm font-medium text-gray-600" data-ru="Ваше имя" data-uz="Ismingiz" data-tj="Номи шумо">Ismingiz</label>
@@ -921,7 +943,7 @@
                         setTimeout(() => document.body.removeChild(toast), 2000);
                         return;
                     }
-                  const name = document.getElementById('customerName').value;
+                    const name = document.getElementById('customerName').value;
                     const phone = document.getElementById('customerPhone').value;
                     const address = document.getElementById('customerAddress').value;
                     let message = `*Новый заказ*\n\n`;
