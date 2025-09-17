@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SimConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <style>
+        :root {
+            --primary-color: #5E50F2;
+            --primary-hover: #4a3dcc;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-color-primary: #111827;
+            --text-color-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--card-background);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, var(--primary-color), #7e72f5);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        /* --- Profile Section --- */
+        .profile-section {
+            background-color: var(--card-background);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .profile-header {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+        .profile-image-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .profile-image, .profile-initials {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--primary-color);
+        }
+        .profile-initials {
+            background: linear-gradient(45deg, var(--primary-color), #7e72f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .edit-profile-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: transform 0.2s ease;
+        }
+        .edit-profile-btn:hover {
+            transform: scale(1.1);
+        }
+        .profile-info h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .profile-info p {
+            color: var(--text-color-secondary);
+        }
+        .profile-info .join-date {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Story Section --- */
+        .story-section {
+            background-color: var(--card-background);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .story-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .stories-container {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        .stories-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .stories-container::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        .story-item, .add-story-btn {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .story-item-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            padding: 3px;
+            transition: transform 0.2s ease;
+        }
+        .story-item:hover .story-item-thumbnail {
+            transform: scale(1.05);
+        }
+        .add-story-btn {
+            border: 2px dashed var(--border-color);
+            background-color: var(--background-color);
+            transition: border-color 0.2s, color 0.2s;
+            color: var(--text-color-secondary);
+        }
+        .add-story-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        /* --- Posts Section --- */
+        .posts-section {
+            background-color: var(--card-background);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+        .posts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .posts-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .post-item {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .post-item img, .post-item video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            background-color: #f0f0f0;
+        }
+        .post-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 2rem 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .post-item:hover .post-overlay {
+            opacity: 1;
+        }
+        .post-date {
+            color: white;
+            font-size: 0.875rem;
+        }
+        .delete-post-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .delete-post-btn:hover {
+            background-color: #ef4444;
+        }
+        
+        /* --- Empty States --- */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-color-secondary);
+        }
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--border-color);
+        }
+
+        /* --- Modals --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center; justify-content: center;
+            padding: 1rem; z-index: 1000;
+        }
+        .modal-content {
+            background-color: var(--card-background);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            padding: 2rem; width: 100%; max-width: 450px;
+        }
+        .modal-title {
+            font-size: 1.5rem; font-weight: 700;
+            text-align: center; margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-label { display: block; font-weight: 500; color: var(--text-color-primary); margin-bottom: 0.5rem; }
+        .form-input {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem; font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus {
+            outline: none; border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(94, 80, 242, 0.2);
+        }
+        .modal-buttons { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+        .cancel-btn, .submit-btn {
+            flex: 1; padding: 0.75rem; border-radius: 0.5rem;
+            font-weight: 600; cursor: pointer; border: none;
+            transition: background-color 0.2s;
+        }
+        .cancel-btn { background-color: #e5e7eb; color: var(--text-color-primary); }
+        .cancel-btn:hover { background-color: #d1d5db; }
+        .submit-btn { background-color: var(--primary-color); color: white; }
+        .submit-btn:hover { background-color: var(--primary-hover); }
+
+        /* --- Story Viewer Modal --- */
+        .story-viewer {
+            position: fixed; inset: 0; background-color: #000;
+            z-index: 1100; display: flex; align-items: center; justify-content: center;
+        }
+        .story-viewer-content { max-width: 90vw; max-height: 90vh; }
+        .story-viewer-content img, .story-viewer-content video {
+            width: auto; height: auto;
+            max-width: 100%; max-height: 100%; object-fit: contain;
+        }
+        .close-story-viewer {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(255, 255, 255, 0.2); color: white; border: none;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">SimConnect</h1>
+                <button id="profileButton" class="action-btn"></button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container" id="mainContent"></main>
+
+    <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
+    <input type="file" id="storyInput" accept="image/*,video/*" style="display: none;">
+    <input type="file" id="postInput" accept="image/*,video/*" style="display: none;">
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DB & STATE MANAGEMENT ---
+        const DB_NAME = 'SimConnectDB';
+        const DB_VERSION = 1;
+        const STORES = { stories: 'stories', posts: 'posts' };
+        let db = null;
+        let user = null;
+        let stories = [];
+        let posts = [];
+        
+        // --- DOM ELEMENTS ---
+        const mainContent = document.getElementById('mainContent');
+        const profileButton = document.getElementById('profileButton');
+
+        // --- INDEXEDDB HELPER FUNCTIONS ---
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onupgradeneeded = event => {
+                    const dbInstance = event.target.result;
+                    if (!dbInstance.objectStoreNames.contains(STORES.stories)) {
+                        const store = dbInstance.createObjectStore(STORES.stories, { keyPath: 'id' });
+                        store.createIndex('by_user', 'userCode', { unique: false });
+                    }
+                    if (!dbInstance.objectStoreNames.contains(STORES.posts)) {
+                        const store = dbInstance.createObjectStore(STORES.posts, { keyPath: 'id' });
+                        store.createIndex('by_user', 'userCode', { unique: false });
+                    }
+                };
+                request.onsuccess = event => { db = event.target.result; resolve(db); };
+                request.onerror = event => reject(event.target.error);
+            });
+        }
+
+        const addItemToDB = (storeName, item) => new Promise((resolve, reject) => {
+            const tx = db.transaction(storeName, 'readwrite');
+            const store = tx.objectStore(storeName);
+            const request = store.add(item);
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+        });
+
+        const getItemsFromDB = (storeName, userCode) => new Promise((resolve, reject) => {
+            const tx = db.transaction(storeName, 'readonly');
+            const store = tx.objectStore(storeName);
+            const index = store.index('by_user');
+            const request = index.getAll(IDBKeyRange.only(userCode));
+            request.onsuccess = () => resolve(request.result || []);
+            request.onerror = () => reject(request.error);
+        });
+        
+        const deleteItemFromDB = (storeName, id) => new Promise((resolve, reject) => {
+            const tx = db.transaction(storeName, 'readwrite');
+            const store = tx.objectStore(storeName);
+            const request = store.delete(id);
+            request.onsuccess = () => resolve();
+            request.onerror = () => reject(request.error);
+        });
+
+        // --- CORE FUNCTIONS ---
+        async function initApp() {
+            await openDB();
+            const savedUser = localStorage.getItem('userProfile');
+            if (savedUser) {
+                user = JSON.parse(savedUser);
+                await loadUserData();
+            }
+            renderUI();
+        }
+
+        async function loadUserData() {
+            if (!user) return;
+            const now = Date.now();
+            
+            // Load and filter expired stories
+            const allStories = await getItemsFromDB(STORES.stories, user.code);
+            stories = [];
+            for (const story of allStories) {
+                if (story.expiresAt && story.expiresAt < now) {
+                    await deleteItemFromDB(STORES.stories, story.id);
+                } else {
+                    story.objectURL = URL.createObjectURL(story.file);
+                    stories.push(story);
+                }
+            }
+            
+            // Load posts
+            const allPosts = await getItemsFromDB(STORES.posts, user.code);
+            posts = allPosts.map(post => ({...post, objectURL: URL.createObjectURL(post.file) }));
+        }
+        
+        function renderUI() {
+            if (!user) {
+                renderLoggedOutView();
+            } else {
+                renderLoggedInView();
+            }
+        }
+
+        // --- RENDER FUNCTIONS (Your existing render functions are great, so they remain largely unchanged) ---
+        function renderLoggedOutView() {
+            profileButton.innerHTML = `<i class="ri-user-line"></i><span>Profile</span>`;
+            profileButton.onclick = showLoginModal;
+            mainContent.innerHTML = `
+                <div class="empty-state" style="padding: 5rem 2rem;">
+                    <i class="ri-login-box-line"></i>
+                    <h2>Welcome to SimConnect!</h2>
+                    <p>Please click the "Profile" button to log in and share your moments.</p>
+                </div>`;
+        }
+        
+        function renderLoggedInView() {
+            profileButton.innerHTML = `<i class="ri-logout-box-r-line"></i><span>Logout</span>`;
+            profileButton.onclick = logout;
+            mainContent.innerHTML = `
+                ${renderProfileSection()}
+                ${renderStorySection()}
+                ${renderPostsSection()}`;
+            renderStories();
+            renderPostsGrid();
+            attachLoggedInEventListeners();
+        }
+
+        function renderProfileSection() {
+            return `
+                <section class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-image-container">
+                            ${user.profileImage ? 
+                                `<img src="${user.profileImage}" alt="Profile" class="profile-image">` : 
+                                `<div class="profile-initials">${user.name.charAt(0).toUpperCase()}</div>`}
+                            <button id="editProfileImageBtn" class="edit-profile-btn" title="Change profile picture"><i class="ri-pencil-fill"></i></button>
+                        </div>
+                        <div class="profile-info">
+                            <h2>${user.name}</h2>
+                            <p>User Code: ${user.code}</p>
+                            <p class="join-date">Joined: ${user.joinDate}</p>
+                        </div>
+                    </div>
+                </section>`;
+        }
+
+        function renderStorySection() {
+            return `
+                <section class="story-section">
+                    <h3>Stories (24h)</h3>
+                    <div id="storiesContainer" class="stories-container"></div>
+                </section>`;
+        }
+        
+        function renderStories() {
+            const storiesContainer = document.getElementById('storiesContainer');
+            let storiesHTML = `
+                <button class="add-story-btn" id="addStoryBtn" title="Add a new story">
+                    <i class="ri-add-line" style="font-size: 24px;"></i>
+                </button>`;
+            
+            storiesHTML += stories.sort((a,b) => b.id - a.id).map(story => `
+                <div class="story-item" data-id="${story.id}">
+                    <img src="${story.type.startsWith('video/') ? 'https://i.imgur.com/kPj2VnR.png' : story.objectURL}" alt="Story" class="story-item-thumbnail">
+                </div>`).join('');
+
+            storiesContainer.innerHTML = storiesHTML;
+            document.getElementById('addStoryBtn').addEventListener('click', () => document.getElementById('storyInput').click());
+            storiesContainer.querySelectorAll('.story-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const story = stories.find(s => s.id == item.dataset.id);
+                    if(story) showStoryViewer(story);
+                });
+            });
+        }
+        
+        function renderPostsSection() {
+            return `
+                <section class="posts-section">
+                    <div class="posts-header">
+                        <h3>My Posts</h3>
+                        <button id="uploadPostBtn" class="action-btn"><i class="ri-upload-cloud-2-line"></i><span>Upload Post</span></button>
+                    </div>
+                    <div id="postsGrid" class="posts-grid"></div>
+                </section>`;
+        }
+
+        function renderPostsGrid() {
+            const postsGrid = document.getElementById('postsGrid');
+            if (posts.length === 0) {
+                postsGrid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><i class="ri-gallery-line"></i><p>No posts yet.</p></div>`;
+            } else {
+                postsGrid.innerHTML = posts.sort((a,b) => b.id - a.id).map(post => `
+                    <div class="post-item" data-id="${post.id}">
+                        ${post.type.startsWith('image/') ?
+                            `<img src="${post.objectURL}" alt="User post">` :
+                            `<video src="${post.objectURL}" controls muted loop onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>`}
+                        <div class="post-overlay">
+                            <span class="post-date">${post.date}</span>
+                            <button class="delete-post-btn" data-id="${post.id}" title="Delete post"><i class="ri-delete-bin-6-line"></i></button>
+                        </div>
+                    </div>`).join('');
+                postsGrid.querySelectorAll('.delete-post-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        deletePost(parseInt(btn.dataset.id));
+                    });
+                });
+            }
+        }
+
+        // --- EVENT LISTENERS ---
+        function attachLoggedInEventListeners() {
+            document.getElementById('editProfileImageBtn').addEventListener('click', () => document.getElementById('profileImageInput').click());
+            document.getElementById('profileImageInput').addEventListener('change', handleProfileImageUpload);
+            document.getElementById('uploadPostBtn').addEventListener('click', () => document.getElementById('postInput').click());
+            document.getElementById('postInput').addEventListener('change', handlePostUpload);
+            document.getElementById('storyInput').addEventListener('change', handleStoryUpload);
+        }
+        
+        // --- ACTIONS & HANDLERS ---
+        function showLoginModal() {
+            const modalHTML = `
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        <h2 class="modal-title">Login to Profile</h2>
+                        <form id="loginForm">
+                            <div class="form-group"><label class="form-label" for="nameInput">Your Name</label><input type="text" id="nameInput" class="form-input" required></div>
+                            <div class="form-group"><label class="form-label" for="codeInput">4-Digit Code</label><input type="text" id="codeInput" class="form-input" maxlength="4" pattern="[0-9]{4}" required></div>
+                            <div class="modal-buttons"><button type="button" class="cancel-btn">Cancel</button><button type="submit" class="submit-btn">Login</button></div>
+                        </form>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            const modal = document.querySelector('.modal-overlay');
+            modal.querySelector('.cancel-btn').addEventListener('click', () => modal.remove());
+            modal.querySelector('#loginForm').addEventListener('submit', handleLogin);
+        }
+        
+        async function handleLogin(e) {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value.trim();
+            const code = document.getElementById('codeInput').value.trim();
+            if (!name || !/^\d{4}$/.test(code)) { alert("Please enter your name and a valid 4-digit code!"); return; }
+            
+            user = { name, code, profileImage: null, joinDate: new Date().toLocaleDateString() };
+            localStorage.setItem('userProfile', JSON.stringify(user));
+            
+            await loadUserData();
+            document.querySelector('.modal-overlay')?.remove();
+            renderUI();
+        }
+
+        function logout() {
+            localStorage.removeItem('userProfile');
+            user = null; stories = []; posts = [];
+            renderUI();
+        }
+        
+        function handleProfileImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                user.profileImage = reader.result;
+                localStorage.setItem('userProfile', JSON.stringify(user));
+                renderLoggedInView();
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        async function handleStoryUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const newStory = { id: Date.now(), userCode: user.code, date: new Date().toLocaleDateString(), type: file.type, file, expiresAt: Date.now() + 24 * 60 * 60 * 1000 };
+            try {
+                await addItemToDB(STORES.stories, newStory);
+                newStory.objectURL = URL.createObjectURL(file);
+                stories.push(newStory);
+                renderStories();
+            } catch (error) {
+                console.error("Failed to save story:", error);
+                alert("Failed to save the story. The file might be too large or there was a database error.");
+            }
+            e.target.value = null;
+        }
+
+        async function handlePostUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const newPost = { id: Date.now(), userCode: user.code, date: new Date().toLocaleDateString(), type: file.type, file };
+            try {
+                await addItemToDB(STORES.posts, newPost);
+                newPost.objectURL = URL.createObjectURL(file);
+                posts.push(newPost);
+                renderPostsGrid();
+            } catch (error) {
+                console.error("Failed to save post:", error);
+                alert("Failed to save the post. The file might be too large or there was a database error.");
+            }
+            e.target.value = null;
+        }
+        
+        async function deletePost(id) {
+            if (confirm("Are you sure you want to delete this post?")) {
+                await deleteItemFromDB(STORES.posts, id);
+                posts = posts.filter(item => item.id !== id);
+                renderPostsGrid();
+            }
+        }
+
+        function showStoryViewer(story) {
+            const viewerHTML = `
+                <div class="story-viewer">
+                    <div class="story-viewer-content">
+                        ${story.type.startsWith('image/') ? 
+                            `<img src="${story.objectURL}" alt="Story content">` : 
+                            `<video src="${story.objectURL}" controls autoplay></video>`}
+                    </div>
+                    <button class="close-story-viewer">&times;</button>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', viewerHTML);
+            const viewer = document.querySelector('.story-viewer');
+            viewer.querySelector('.close-story-viewer').addEventListener('click', () => viewer.remove());
+        }
+        
+        // --- INITIALIZE APP ---
+        initApp();
+    });
+    </script>
+</body>
+</html>
