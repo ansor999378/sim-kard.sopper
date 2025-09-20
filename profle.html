@@ -1,717 +1,674 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - SimConnect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <title>StoryHub - Share Your Moments</title>
     <style>
         :root {
-            --primary-color: #5E50F2;
-            --primary-hover: #4a3dcc;
-            --background-color: #f8f9fa;
-            --card-background: #ffffff;
-            --text-color-primary: #111827;
-            --text-color-secondary: #6b7280;
-            --border-color: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --primary: #ff385c;
+            --secondary: #f0f2f5;
+            --dark: #262626;
+            --light: #ffffff;
+            --gray: #8e8e8e;
+            --border: #dbdbdb;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color-primary);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        header {
-            background-color: var(--card-background);
-            box-shadow: var(--shadow);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .action-btn {
-            background: linear-gradient(45deg, var(--primary-color), #7e72f5);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        main {
-            padding: 2rem 0;
-        }
-
-        /* --- Profile Section --- */
-        .profile-section {
-            background-color: var(--card-background);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        .profile-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            text-align: center;
-        }
-        @media (min-width: 768px) {
-            .profile-header {
-                flex-direction: row;
-                text-align: left;
-            }
-        }
-        .profile-image-container {
-            position: relative;
-            flex-shrink: 0;
-        }
-        .profile-image, .profile-initials {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px var(--primary-color);
-        }
-        .profile-initials {
-            background: linear-gradient(45deg, var(--primary-color), #7e72f5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .edit-profile-btn {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 2px solid white;
-            transition: transform 0.2s ease;
-        }
-        .edit-profile-btn:hover {
-            transform: scale(1.1);
-        }
-        .profile-info h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        .profile-info p {
-            color: var(--text-color-secondary);
-        }
-        .profile-info .join-date {
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        /* --- Story Section --- */
-        .story-section {
-            background-color: var(--card-background);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-            padding: 1rem;
-            margin-bottom: 2rem;
-        }
-        .story-section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .stories-container {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-        }
-        .stories-container::-webkit-scrollbar {
-            height: 8px;
-        }
-        .stories-container::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 4px;
-        }
-        .story-item, .add-story-btn {
-            flex-shrink: 0;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .story-item-thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            padding: 3px;
-            transition: transform 0.2s ease;
-        }
-        .story-item:hover .story-item-thumbnail {
-            transform: scale(1.05);
-        }
-        .add-story-btn {
-            border: 2px dashed var(--border-color);
-            background-color: var(--background-color);
-            transition: border-color 0.2s, color 0.2s;
-            color: var(--text-color-secondary);
-        }
-        .add-story-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         
-        /* --- Posts Section --- */
-        .posts-section {
-            background-color: var(--card-background);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
         }
-        .posts-header {
+        
+        /* Login Page */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            padding: 1rem;
+        }
+        
+        .login-card {
+            background-color: var(--light);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-logo {
+            width: 175px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 56, 92, 0.2);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e02d4d;
+            transform: translateY(-2px);
+        }
+        
+        /* Main App */
+        #app-page {
+            display: none;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--light);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 1rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #405de6, #e1306c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .create-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .logout-btn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.875rem;
+            padding: 0.5rem;
+        }
+        
+        .main-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        /* Stories Section */
+        .stories-section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        /* Story Creation Form */
+        .story-form {
+            background-color: var(--light);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .user-info {
+            display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
         }
-        .posts-header h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .post-item {
-            border-radius: 0.5rem;
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-        .post-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        .post-item img, .post-item video {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            background-color: #f0f0f0;
-        }
-        .post-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 2rem 1rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .post-item:hover .post-overlay {
-            opacity: 1;
-        }
-        .post-date {
-            color: white;
-            font-size: 0.875rem;
-        }
-        .delete-post-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 36px;
-            height: 36px;
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            cursor: pointer;
+            background: linear-gradient(45deg, #405de6, #e1306c);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.2s;
-        }
-        .delete-post-btn:hover {
-            background-color: #ef4444;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
         }
         
-        /* --- Empty States --- */
+        .user-details {
+            flex: 1;
+        }
+        
+        .full-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .username {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        /* Media Upload */
+        .media-upload {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .upload-btn:hover {
+            background-color: #e02d4d;
+        }
+        
+        .media-preview {
+            margin-top: 1rem;
+            max-width: 100%;
+            border-radius: 0.5rem;
+            display: none;
+        }
+        
+        /* Stories Grid */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .story-card {
+            background-color: var(--light);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .story-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #405de6, #e1306c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+        
+        .story-user-info {
+            flex: 1;
+        }
+        
+        .story-full-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .story-time {
+            color: var(--gray);
+            font-size: 0.75rem;
+        }
+        
+        .story-media {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
         .empty-state {
             text-align: center;
             padding: 3rem 1rem;
-            border: 2px dashed var(--border-color);
-            border-radius: 0.5rem;
-            color: var(--text-color-secondary);
+            color: var(--gray);
         }
-        .empty-state i {
+        
+        .empty-state-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: var(--border-color);
         }
-
-        /* --- Modals --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center; justify-content: center;
-            padding: 1rem; z-index: 1000;
+        
+        /* Video Controls */
+        .video-container {
+            position: relative;
+            width: 100%;
         }
-        .modal-content {
-            background-color: var(--card-background);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-lg);
-            padding: 2rem; width: 100%; max-width: 450px;
+        
+        .video-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 5px;
+            display: none;
         }
-        .modal-title {
-            font-size: 1.5rem; font-weight: 700;
-            text-align: center; margin-bottom: 1.5rem;
+        
+        .video-container:hover .video-controls {
+            display: block;
         }
-        .form-group { margin-bottom: 1rem; }
-        .form-label { display: block; font-weight: 500; color: var(--text-color-primary); margin-bottom: 0.5rem; }
-        .form-input {
-            width: 100%; padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem; font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .form-input:focus {
-            outline: none; border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(94, 80, 242, 0.2);
-        }
-        .modal-buttons { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
-        .cancel-btn, .submit-btn {
-            flex: 1; padding: 0.75rem; border-radius: 0.5rem;
-            font-weight: 600; cursor: pointer; border: none;
-            transition: background-color 0.2s;
-        }
-        .cancel-btn { background-color: #e5e7eb; color: var(--text-color-primary); }
-        .cancel-btn:hover { background-color: #d1d5db; }
-        .submit-btn { background-color: var(--primary-color); color: white; }
-        .submit-btn:hover { background-color: var(--primary-hover); }
-
-        /* --- Story Viewer Modal --- */
-        .story-viewer {
-            position: fixed; inset: 0; background-color: #000;
-            z-index: 1100; display: flex; align-items: center; justify-content: center;
-        }
-        .story-viewer-content { max-width: 90vw; max-height: 90vh; }
-        .story-viewer-content img, .story-viewer-content video {
-            width: auto; height: auto;
-            max-width: 100%; max-height: 100%; object-fit: contain;
-        }
-        .close-story-viewer {
-            position: absolute; top: 20px; right: 20px;
-            background: rgba(255, 255, 255, 0.2); color: white; border: none;
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-            font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: var(--gray);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1 class="logo">SimConnect</h1>
-                <button id="profileButton" class="action-btn"></button>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 100%; height: auto;">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </div>
+                <h2 style="font-size: 1.5rem; font-weight: 600; color: #262626;">StoryHub</h2>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Main App -->
+    <div id="app-page">
+        <header>
+            <div class="logo">StoryHub</div>
+            <div class="user-menu">
+                <button class="create-btn">+</button>
+                <button class="logout-btn" id="logout-btn">Logout</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <!-- User Info for Story Creation -->
+            <div class="story-form">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar">U</div>
+                    <div class="user-details">
+                        <div class="full-name" id="user-full-name">User Name</div>
+                        <div class="username" id="user-username">@username</div>
+                    </div>
+                </div>
+                
+                <div class="media-upload">
+                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                    <input type="file" id="video-upload" accept="video/*" style="display: none;">
+                    <button type="button" class="upload-btn" id="upload-image-btn">📸 Upload Photo</button>
+                    <button type="button" class="upload-btn" id="upload-video-btn">🎥 Upload Video</button>
+                </div>
+                
+                <div id="media-preview-container">
+                    <img id="image-preview" class="media-preview" src="" alt="Preview">
+                    <div class="video-container">
+                        <video id="video-preview" class="media-preview" controls></video>
+                    </div>
+                </div>
+                
+                <button type="button" id="post-story-btn" class="btn btn-primary" style="width: auto; padding: 0.5rem 1.5rem; margin-top: 1rem; display: none;">Share to Story</button>
+            </div>
+            
+            <!-- Stories Section -->
+            <h2 class="section-title">Your Stories</h2>
+            <div id="stories-container" class="stories-grid">
+                <div class="loading">Loading your stories...</div>
             </div>
         </div>
-    </header>
+    </div>
     
-    <main class="container" id="mainContent"></main>
-
-    <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
-    <input type="file" id="storyInput" accept="image/*,video/*" style="display: none;">
-    <input type="file" id="postInput" accept="image/*,video/*" style="display: none;">
-
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- DB & STATE MANAGEMENT ---
-        const DB_NAME = 'SimConnectDB';
-        const DB_VERSION = 1;
-        const STORES = { stories: 'stories', posts: 'posts' };
-        let db = null;
-        let user = null;
+        // DOM Elements
+        const loginPage = document.getElementById('login-page');
+        const appPage = document.getElementById('app-page');
+        const loginForm = document.getElementById('login-form');
+        const logoutBtn = document.getElementById('logout-btn');
+        const uploadImageBtn = document.getElementById('upload-image-btn');
+        const uploadVideoBtn = document.getElementById('upload-video-btn');
+        const imageUpload = document.getElementById('image-upload');
+        const videoUpload = document.getElementById('video-upload');
+        const imagePreview = document.getElementById('image-preview');
+        const videoPreview = document.getElementById('video-preview');
+        const mediaPreviewContainer = document.getElementById('media-preview-container');
+        const postStoryBtn = document.getElementById('post-story-btn');
+        const storiesContainer = document.getElementById('stories-container');
+        const userFullName = document.getElementById('user-full-name');
+        const userUsername = document.getElementById('user-username');
+        const userAvatar = document.getElementById('user-avatar');
+        
+        // State management using localStorage
+        let currentUser = null;
         let stories = [];
-        let posts = [];
         
-        // --- DOM ELEMENTS ---
-        const mainContent = document.getElementById('mainContent');
-        const profileButton = document.getElementById('profileButton');
-
-        // --- INDEXEDDB HELPER FUNCTIONS ---
-        function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
-                request.onupgradeneeded = event => {
-                    const dbInstance = event.target.result;
-                    if (!dbInstance.objectStoreNames.contains(STORES.stories)) {
-                        const store = dbInstance.createObjectStore(STORES.stories, { keyPath: 'id' });
-                        store.createIndex('by_user', 'userCode', { unique: false });
-                    }
-                    if (!dbInstance.objectStoreNames.contains(STORES.posts)) {
-                        const store = dbInstance.createObjectStore(STORES.posts, { keyPath: 'id' });
-                        store.createIndex('by_user', 'userCode', { unique: false });
-                    }
-                };
-                request.onsuccess = event => { db = event.target.result; resolve(db); };
-                request.onerror = event => reject(event.target.error);
-            });
-        }
-
-        const addItemToDB = (storeName, item) => new Promise((resolve, reject) => {
-            const tx = db.transaction(storeName, 'readwrite');
-            const store = tx.objectStore(storeName);
-            const request = store.add(item);
-            request.onsuccess = () => resolve(request.result);
-            request.onerror = () => reject(request.error);
-        });
-
-        const getItemsFromDB = (storeName, userCode) => new Promise((resolve, reject) => {
-            const tx = db.transaction(storeName, 'readonly');
-            const store = tx.objectStore(storeName);
-            const index = store.index('by_user');
-            const request = index.getAll(IDBKeyRange.only(userCode));
-            request.onsuccess = () => resolve(request.result || []);
-            request.onerror = () => reject(request.error);
-        });
+        // Initialize app on load
+        document.addEventListener('DOMContentLoaded', initApp);
         
-        const deleteItemFromDB = (storeName, id) => new Promise((resolve, reject) => {
-            const tx = db.transaction(storeName, 'readwrite');
-            const store = tx.objectStore(storeName);
-            const request = store.delete(id);
-            request.onsuccess = () => resolve();
-            request.onerror = () => reject(request.error);
-        });
-
-        // --- CORE FUNCTIONS ---
-        async function initApp() {
-            await openDB();
-            const savedUser = localStorage.getItem('userProfile');
+        function initApp() {
+            // Check if user is already logged in
+            const savedUser = localStorage.getItem('storyhub_user');
             if (savedUser) {
-                user = JSON.parse(savedUser);
-                await loadUserData();
-            }
-            renderUI();
-        }
-
-        async function loadUserData() {
-            if (!user) return;
-            const now = Date.now();
-            
-            // Load and filter expired stories
-            const allStories = await getItemsFromDB(STORES.stories, user.code);
-            stories = [];
-            for (const story of allStories) {
-                if (story.expiresAt && story.expiresAt < now) {
-                    await deleteItemFromDB(STORES.stories, story.id);
-                } else {
-                    story.objectURL = URL.createObjectURL(story.file);
-                    stories.push(story);
+                currentUser = JSON.parse(savedUser);
+                // Load user's stories
+                const savedStories = localStorage.getItem(`storyhub_stories_${currentUser.email}`);
+                if (savedStories) {
+                    stories = JSON.parse(savedStories);
                 }
+                // Show app page
+                loginPage.style.display = 'none';
+                appPage.style.display = 'block';
+                // Update UI with user info
+                updateUserUI();
+                renderStories();
             }
+        }
+        
+        // Event Listeners
+        loginForm.addEventListener('submit', handleLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+        uploadImageBtn.addEventListener('click', () => imageUpload.click());
+        uploadVideoBtn.addEventListener('click', () => videoUpload.click());
+        imageUpload.addEventListener('change', handleImageUpload);
+        videoUpload.addEventListener('change', handleVideoUpload);
+        postStoryBtn.addEventListener('click', handlePostStory);
+        
+        // Functions
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
             
-            // Load posts
-            const allPosts = await getItemsFromDB(STORES.posts, user.code);
-            posts = allPosts.map(post => ({...post, objectURL: URL.createObjectURL(post.file) }));
-        }
-        
-        function renderUI() {
-            if (!user) {
-                renderLoggedOutView();
-            } else {
-                renderLoggedInView();
+            if (email && password) {
+                // Extract name from email for demo purposes
+                const emailName = email.split('@')[0];
+                currentUser = {
+                    email: email,
+                    password: password, // In real app, never store plain text passwords
+                    fullName: emailName.charAt(0).toUpperCase() + emailName.slice(1).replace(/[._]/g, ' '),
+                    username: '@' + emailName.toLowerCase().replace(/[._]/g, ''),
+                    avatarInitial: emailName.charAt(0).toUpperCase()
+                };
+                
+                // Save user to localStorage
+                localStorage.setItem('storyhub_user', JSON.stringify(currentUser));
+                
+                // Try to load existing stories for this user
+                const savedStories = localStorage.getItem(`storyhub_stories_${email}`);
+                if (savedStories) {
+                    stories = JSON.parse(savedStories);
+                } else {
+                    stories = [];
+                }
+                
+                // Update UI
+                updateUserUI();
+                renderStories();
+                
+                // Switch to app page
+                loginPage.style.display = 'none';
+                appPage.style.display = 'block';
             }
         }
-
-        // --- RENDER FUNCTIONS (Your existing render functions are great, so they remain largely unchanged) ---
-        function renderLoggedOutView() {
-            profileButton.innerHTML = `<i class="ri-user-line"></i><span>Profile</span>`;
-            profileButton.onclick = showLoginModal;
-            mainContent.innerHTML = `
-                <div class="empty-state" style="padding: 5rem 2rem;">
-                    <i class="ri-login-box-line"></i>
-                    <h2>Welcome to SimConnect!</h2>
-                    <p>Please click the "Profile" button to log in and share your moments.</p>
-                </div>`;
+        
+        function handleLogout() {
+            // Don't clear user data, just go back to login page
+            // User data remains in localStorage for next login
+            appPage.style.display = 'none';
+            loginPage.style.display = 'block';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
         }
         
-        function renderLoggedInView() {
-            profileButton.innerHTML = `<i class="ri-logout-box-r-line"></i><span>Logout</span>`;
-            profileButton.onclick = logout;
-            mainContent.innerHTML = `
-                ${renderProfileSection()}
-                ${renderStorySection()}
-                ${renderPostsSection()}`;
+        function updateUserUI() {
+            if (!currentUser) return;
+            
+            userFullName.textContent = currentUser.fullName;
+            userUsername.textContent = currentUser.username;
+            userAvatar.textContent = currentUser.avatarInitial;
+        }
+        
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    imagePreview.src = event.target.result;
+                    imagePreview.style.display = 'block';
+                    videoPreview.style.display = 'none';
+                    postStoryBtn.style.display = 'block';
+                    
+                    // Store the current media data
+                    currentMediaData = {
+                        type: 'image',
+                        data: event.target.result
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function handleVideoUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    videoPreview.src = event.target.result;
+                    videoPreview.style.display = 'block';
+                    imagePreview.style.display = 'none';
+                    postStoryBtn.style.display = 'block';
+                    
+                    // Store the current media data
+                    currentMediaData = {
+                        type: 'video',
+                        data: event.target.result
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        let currentMediaData = null;
+        
+        function handlePostStory() {
+            if (!currentMediaData || !currentUser) return;
+            
+            const newStory = {
+                id: Date.now(),
+                mediaUrl: currentMediaData.data,
+                mediaType: currentMediaData.type,
+                fullName: currentUser.fullName,
+                username: currentUser.username,
+                avatarInitial: currentUser.avatarInitial,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Add to stories array
+            stories.unshift(newStory);
+            
+            // Save to localStorage
+            localStorage.setItem(`storyhub_stories_${currentUser.email}`, JSON.stringify(stories));
+            
+            // Render updated stories
             renderStories();
-            renderPostsGrid();
-            attachLoggedInEventListeners();
+            
+            // Reset form
+            currentMediaData = null;
+            imagePreview.style.display = 'none';
+            videoPreview.style.display = 'none';
+            postStoryBtn.style.display = 'none';
+            imageUpload.value = '';
+            videoUpload.value = '';
         }
-
-        function renderProfileSection() {
-            return `
-                <section class="profile-section">
-                    <div class="profile-header">
-                        <div class="profile-image-container">
-                            ${user.profileImage ? 
-                                `<img src="${user.profileImage}" alt="Profile" class="profile-image">` : 
-                                `<div class="profile-initials">${user.name.charAt(0).toUpperCase()}</div>`}
-                            <button id="editProfileImageBtn" class="edit-profile-btn" title="Change profile picture"><i class="ri-pencil-fill"></i></button>
-                        </div>
-                        <div class="profile-info">
-                            <h2>${user.name}</h2>
-                            <p>User Code: ${user.code}</p>
-                            <p class="join-date">Joined: ${user.joinDate}</p>
-                        </div>
-                    </div>
-                </section>`;
-        }
-
-        function renderStorySection() {
-            return `
-                <section class="story-section">
-                    <h3>Stories (24h)</h3>
-                    <div id="storiesContainer" class="stories-container"></div>
-                </section>`;
+        
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffInMinutes = Math.floor((now - date) / 60000);
+            
+            if (diffInMinutes < 1) {
+                return 'Just now';
+            } else if (diffInMinutes < 60) {
+                return `${diffInMinutes}m ago`;
+            } else if (diffInMinutes < 1440) {
+                return `${Math.floor(diffInMinutes / 60)}h ago`;
+            } else {
+                return `${Math.floor(diffInMinutes / 1440)}d ago`;
+            }
         }
         
         function renderStories() {
-            const storiesContainer = document.getElementById('storiesContainer');
-            let storiesHTML = `
-                <button class="add-story-btn" id="addStoryBtn" title="Add a new story">
-                    <i class="ri-add-line" style="font-size: 24px;"></i>
-                </button>`;
+            if (stories.length === 0) {
+                storiesContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📸</div>
+                        <p>No stories yet</p>
+                        <p>Share your first photo or video story!</p>
+                    </div>
+                `;
+                return;
+            }
             
-            storiesHTML += stories.sort((a,b) => b.id - a.id).map(story => `
-                <div class="story-item" data-id="${story.id}">
-                    <img src="${story.type.startsWith('video/') ? 'https://i.imgur.com/kPj2VnR.png' : story.objectURL}" alt="Story" class="story-item-thumbnail">
-                </div>`).join('');
-
-            storiesContainer.innerHTML = storiesHTML;
-            document.getElementById('addStoryBtn').addEventListener('click', () => document.getElementById('storyInput').click());
-            storiesContainer.querySelectorAll('.story-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const story = stories.find(s => s.id == item.dataset.id);
-                    if(story) showStoryViewer(story);
-                });
+            storiesContainer.innerHTML = '';
+            stories.forEach(story => {
+                const storyElement = document.createElement('div');
+                storyElement.className = 'story-card';
+                
+                let mediaHtml = '';
+                if (story.mediaType === 'image') {
+                    mediaHtml = `<img src="${story.mediaUrl}" class="story-media" alt="Story">`;
+                } else if (story.mediaType === 'video') {
+                    mediaHtml = `
+                        <div class="video-container">
+                            <video class="story-media" controls>
+                                <source src="${story.mediaUrl}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    `;
+                }
+                
+                storyElement.innerHTML = `
+                    <div class="story-header">
+                        <div class="story-avatar">${story.avatarInitial}</div>
+                        <div class="story-user-info">
+                            <div class="story-full-name">${story.fullName}</div>
+                            <div class="story-time">${formatTime(story.timestamp)}</div>
+                        </div>
+                    </div>
+                    ${mediaHtml}
+                `;
+                storiesContainer.appendChild(storyElement);
             });
         }
-        
-        function renderPostsSection() {
-            return `
-                <section class="posts-section">
-                    <div class="posts-header">
-                        <h3>My Posts</h3>
-                        <button id="uploadPostBtn" class="action-btn"><i class="ri-upload-cloud-2-line"></i><span>Upload Post</span></button>
-                    </div>
-                    <div id="postsGrid" class="posts-grid"></div>
-                </section>`;
-        }
-
-        function renderPostsGrid() {
-            const postsGrid = document.getElementById('postsGrid');
-            if (posts.length === 0) {
-                postsGrid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><i class="ri-gallery-line"></i><p>No posts yet.</p></div>`;
-            } else {
-                postsGrid.innerHTML = posts.sort((a,b) => b.id - a.id).map(post => `
-                    <div class="post-item" data-id="${post.id}">
-                        ${post.type.startsWith('image/') ?
-                            `<img src="${post.objectURL}" alt="User post">` :
-                            `<video src="${post.objectURL}" controls muted loop onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>`}
-                        <div class="post-overlay">
-                            <span class="post-date">${post.date}</span>
-                            <button class="delete-post-btn" data-id="${post.id}" title="Delete post"><i class="ri-delete-bin-6-line"></i></button>
-                        </div>
-                    </div>`).join('');
-                postsGrid.querySelectorAll('.delete-post-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        deletePost(parseInt(btn.dataset.id));
-                    });
-                });
-            }
-        }
-
-        // --- EVENT LISTENERS ---
-        function attachLoggedInEventListeners() {
-            document.getElementById('editProfileImageBtn').addEventListener('click', () => document.getElementById('profileImageInput').click());
-            document.getElementById('profileImageInput').addEventListener('change', handleProfileImageUpload);
-            document.getElementById('uploadPostBtn').addEventListener('click', () => document.getElementById('postInput').click());
-            document.getElementById('postInput').addEventListener('change', handlePostUpload);
-            document.getElementById('storyInput').addEventListener('change', handleStoryUpload);
-        }
-        
-        // --- ACTIONS & HANDLERS ---
-        function showLoginModal() {
-            const modalHTML = `
-                <div class="modal-overlay">
-                    <div class="modal-content">
-                        <h2 class="modal-title">Login to Profile</h2>
-                        <form id="loginForm">
-                            <div class="form-group"><label class="form-label" for="nameInput">Your Name</label><input type="text" id="nameInput" class="form-input" required></div>
-                            <div class="form-group"><label class="form-label" for="codeInput">4-Digit Code</label><input type="text" id="codeInput" class="form-input" maxlength="4" pattern="[0-9]{4}" required></div>
-                            <div class="modal-buttons"><button type="button" class="cancel-btn">Cancel</button><button type="submit" class="submit-btn">Login</button></div>
-                        </form>
-                    </div>
-                </div>`;
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-            const modal = document.querySelector('.modal-overlay');
-            modal.querySelector('.cancel-btn').addEventListener('click', () => modal.remove());
-            modal.querySelector('#loginForm').addEventListener('submit', handleLogin);
-        }
-        
-        async function handleLogin(e) {
-            e.preventDefault();
-            const name = document.getElementById('nameInput').value.trim();
-            const code = document.getElementById('codeInput').value.trim();
-            if (!name || !/^\d{4}$/.test(code)) { alert("Please enter your name and a valid 4-digit code!"); return; }
-            
-            user = { name, code, profileImage: null, joinDate: new Date().toLocaleDateString() };
-            localStorage.setItem('userProfile', JSON.stringify(user));
-            
-            await loadUserData();
-            document.querySelector('.modal-overlay')?.remove();
-            renderUI();
-        }
-
-        function logout() {
-            localStorage.removeItem('userProfile');
-            user = null; stories = []; posts = [];
-            renderUI();
-        }
-        
-        function handleProfileImageUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                user.profileImage = reader.result;
-                localStorage.setItem('userProfile', JSON.stringify(user));
-                renderLoggedInView();
-            };
-            reader.readAsDataURL(file);
-        }
-        
-        async function handleStoryUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const newStory = { id: Date.now(), userCode: user.code, date: new Date().toLocaleDateString(), type: file.type, file, expiresAt: Date.now() + 24 * 60 * 60 * 1000 };
-            try {
-                await addItemToDB(STORES.stories, newStory);
-                newStory.objectURL = URL.createObjectURL(file);
-                stories.push(newStory);
-                renderStories();
-            } catch (error) {
-                console.error("Failed to save story:", error);
-                alert("Failed to save the story. The file might be too large or there was a database error.");
-            }
-            e.target.value = null;
-        }
-
-        async function handlePostUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const newPost = { id: Date.now(), userCode: user.code, date: new Date().toLocaleDateString(), type: file.type, file };
-            try {
-                await addItemToDB(STORES.posts, newPost);
-                newPost.objectURL = URL.createObjectURL(file);
-                posts.push(newPost);
-                renderPostsGrid();
-            } catch (error) {
-                console.error("Failed to save post:", error);
-                alert("Failed to save the post. The file might be too large or there was a database error.");
-            }
-            e.target.value = null;
-        }
-        
-        async function deletePost(id) {
-            if (confirm("Are you sure you want to delete this post?")) {
-                await deleteItemFromDB(STORES.posts, id);
-                posts = posts.filter(item => item.id !== id);
-                renderPostsGrid();
-            }
-        }
-
-        function showStoryViewer(story) {
-            const viewerHTML = `
-                <div class="story-viewer">
-                    <div class="story-viewer-content">
-                        ${story.type.startsWith('image/') ? 
-                            `<img src="${story.objectURL}" alt="Story content">` : 
-                            `<video src="${story.objectURL}" controls autoplay></video>`}
-                    </div>
-                    <button class="close-story-viewer">&times;</button>
-                </div>`;
-            document.body.insertAdjacentHTML('beforeend', viewerHTML);
-            const viewer = document.querySelector('.story-viewer');
-            viewer.querySelector('.close-story-viewer').addEventListener('click', () => viewer.remove());
-        }
-        
-        // --- INITIALIZE APP ---
-        initApp();
-    });
     </script>
 </body>
 </html>
