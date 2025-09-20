@@ -725,7 +725,7 @@
                 </div>
                 <span class="text-xs mt-1" data-ru="Магазин" data-uz="Hikoyalar" data-tj="Қиссаҳо">Stories</span>
             </a>
-            <a href="#" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
+            <a href="profle.html" class="flex flex-col items-center justify-center text-gray-500 cursor-pointer">
                 <div class="w-6 h-6 flex items-center justify-center">
                     <i class="ri-user-line ri-lg"></i>
                 </div>
@@ -913,13 +913,13 @@
                         color: window.getComputedStyle(card).borderTopColor
                     };
                     if (!cart.some(cartItem => cartItem.id === item.id)) {
-                        cart.push(item);
+                                                cart.push(item);
                         localStorage.setItem('cart', JSON.stringify(cart));
                         renderCart();
                         const toast = document.createElement('div');
                         toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
                         toast.textContent = 'Savatga qo\'shildi!';
-                        document.body.appendChild(toast);
+document.body.appendChild(toast);
                         setTimeout(() => document.body.removeChild(toast), 2000);
                     } else {
                         const toast = document.createElement('div');
@@ -1110,4 +1110,3 @@
     </script>
 </body>
 </html>
-
