@@ -29,10 +29,8 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="./gpt.html">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSF7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -41,19 +39,13 @@
     <style>
          .las{
             color: #001476;
-
          }
-
-
         .font-bold{
             font-size: x-large;
-          
         }
-
         .rara{
                 position: absolute;
                 margin-left: 270px;
-             
         }
         .search-container {
             width: 100%;
@@ -61,13 +53,11 @@
             margin: 20px auto;
             padding: 0 16px;
         }
-
         .search-input-container {
             position: relative;
             width: 100%;
             margin: 0 auto;
         }
-
         .search-input {
             width: 100%;
             padding: 12px 50px 12px 16px;
@@ -77,13 +67,11 @@
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
-
         .search-input:focus {
             outline: none;
             border-color: #6200EA;
             box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.1);
         }
-
         .search-icon {
             position: absolute;
             right: 16px;
@@ -92,7 +80,6 @@
             color: #6b7280;
             font-size: 18px;
         }
-
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -102,183 +89,61 @@
             margin: 0 auto;
             padding: 0 16px;
         }
-
         @media (max-width: 768px) {
-            .search-container {
-                padding: 0 12px;
-            }
-            .cards-container {
-                grid-template-columns: 1fr;
-                padding: 0 12px;
-            }
+            .search-container { padding: 0 12px; }
+            .cards-container { grid-template-columns: 1fr; padding: 0 12px; }
         }
-
-        /* Savat uchun maxsus stillar */
         #cartModal.hidden { display: none; }
         #cartModal.flex { display: flex; }
         #cartModalContent.show { transform: scale(1); opacity: 1; }
-
         #cartItemsContainer::-webkit-scrollbar { width: 6px; }
         #cartItemsContainer::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
         #cartItemsContainer::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
         #cartItemsContainer::-webkit-scrollbar-thumb:hover { background: #aaa; }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .cart-item-icon {
-            width: 40px; height: 40px; border-radius: 8px;
-            margin-right: 12px; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .cart-item { display: flex; align-items: center; background-color: white; padding: 10px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .cart-item-icon { width: 40px; height: 40px; border-radius: 8px; margin-right: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
         .cart-item-details { flex-grow: 1; }
         .cart-item-name { font-weight: 600; color: #333; }
         .cart-item-number { font-size: 0.9em; color: #555; }
         .cart-item-price { font-weight: 700; color: #111; margin-left: auto; padding-left: 10px;}
-        .cart-item-remove-btn {
-            background-color: #fee2e2; color: #ef4444; border-radius: 50%;
-            width: 28px; height: 28px; flex-shrink: 0; margin-left: 10px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: all 0.2s ease;
-        }
+        .cart-item-remove-btn { background-color: #fee2e2; color: #ef4444; border-radius: 50%; width: 28px; height: 28px; flex-shrink: 0; margin-left: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
         .cart-item-remove-btn:hover { background-color: #ef4444; color: white; transform: rotate(90deg); }
-
-        .cart-badge {
-            position: absolute; top: -5px; right: -5px;
-            background-color: #ef4444; color: white;
-            border-radius: 50%; width: 20px; height: 20px;
-            font-size: 12px; font-weight: bold;
-            display: flex; align-items: center; justify-content: center;
-            border: 2px solid white;
-        }
-
+        .cart-badge { position: absolute; top: -5px; right: -5px; background-color: #ef4444; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
         @keyframes glow {
             0% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
             50% { filter: drop-shadow(0 0 8px rgba(98, 0, 234, 0.6)); }
             100% { filter: drop-shadow(0 0 2px rgba(98, 0, 234, 0.3)); }
         }
-
-        .logo-animation {
-            animation: glow 2s infinite;
-        }
-
-        .story-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .operator-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .operator-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
+        .logo-animation { animation: glow 2s infinite; }
+        .story-container::-webkit-scrollbar { display: none; }
+        .operator-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .operator-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
         .yota-card { border-color: #0077FF; }
         .tele2-card { border-color: #000000; }
         .beeline-card { border-color: #FFCC00; }
         .mts-card { border-color: #E30611; }
         .megafon-card { border-color: #00B956; }
-
-        body {
-            padding-top: 64px;
-            padding-bottom: 64px;
-        }
-
-        .button {
-            margin-right: 0px;
-        }
-
-        #showMoreBtn {
-            position: relative;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            top: -60px;
-        }
-
-        #showMoreBtn:hover {
-            background-color: #4c00b4;
-        }
-
-        nav {
-            font-family: Arial, sans-serif;
-        }
-        .text-primary {
-            color: #636363;
-        }
-        a:hover, a:focus {
-            color: #E452F7;
-            outline: none;
-        }
-        a:hover svg path, a:focus svg path {
-            fill: #E452F7;
-            stroke: #E452F7;
-        }
-        a:hover i, a:focus i {
-            color: #E452F7;
-        }
-        .active {
-            color: #E452F7 !important;
-        }
-        .active svg path {
-            fill: #E452F7 !important;
-            stroke: #E452F7 !important;
-        }
-        .active i {
-            color: #E452F7 !important;
-        }
-
-        .ru {
-            position: relative;
-            margin-right: 80px;
-            width: 30px;
-            border-radius: 4px;
-            background-color: #d32b33;
-            color: rgb(255, 255, 255);
-        }
-        .ru:hover {
-            background-color: #a00000;
-            color: aliceblue;
-        }
-
-        .uz {
-            position: absolute;
-            margin-right: 18px;
-            background-color: blue;
-            color: aliceblue;
-            border-radius: 4px;
-            width: 28px;
-            margin-left: -66px;
-        }
-        .uz:hover {
-            background-color: #00178a;
-        }
-
-        .tj {
-            position: absolute;
-            background-color: rgb(83, 184, 25);
-            color: aliceblue;
-            width: 30px;
-            border-radius: 4px;
-            margin-left: -20px;
-        }
-        .tj:hover {
-            background-color: #009a0d;
-        }
+        body { padding-top: 64px; padding-bottom: 64px; }
+        .button { margin-right: 0px; }
+        #showMoreBtn { position: relative; transition: all 0.3s ease; margin-top: 20px; margin-left: auto; margin-right: auto; display: block; top: -60px; }
+        #showMoreBtn:hover { background-color: #4c00b4; }
+        nav { font-family: Arial, sans-serif; }
+        .text-primary { color: #636363; }
+        a:hover, a:focus { color: #E452F7; outline: none; }
+        a:hover svg path, a:focus svg path { fill: #E452F7; stroke: #E452F7; }
+        a:hover i, a:focus i { color: #E452F7; }
+        .active { color: #E452F7 !important; }
+        .active svg path { fill: #E452F7 !important; stroke: #E452F7 !important; }
+        .active i { color: #E452F7 !important; }
+        .ru { position: relative; margin-right: 80px; width: 30px; border-radius: 4px; background-color: #d32b33; color: rgb(255, 255, 255); }
+        .ru:hover { background-color: #a00000; color: aliceblue; }
+        .uz { position: absolute; margin-right: 18px; background-color: blue; color: aliceblue; border-radius: 4px; width: 28px; margin-left: -66px; }
+        .uz:hover { background-color: #00178a; }
+        .tj { position: absolute; background-color: rgb(83, 184, 25); color: aliceblue; width: 30px; border-radius: 4px; margin-left: -20px; }
+        .tj:hover { background-color: #009a0d; }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header/Nav Bar -->
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
         <div class="flex items-center justify-between px-4 py-3">
             <div class="flex items-center">
@@ -309,7 +174,6 @@
         </div>
     </header>
 
-    <!-- Hero section -->
     <section class="mt-4 px-4">
         <div class="relative w-full h-48 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg overflow-hidden">
             <img src="./img/475752c9682f67b80bbc30baa649bfea (1).jpg" alt="SIM Card Offers" class="w-full h-full object-cover object-top">
@@ -327,7 +191,6 @@
         </div>
     </section>
 
-    <!-- User Stories Section -->
     <section class="mt-6 px-4">
         <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-semibold" data-ru="Истории клиентов" data-uz="Mijollar hikoyalari" data-tj="Қиссаҳои муштариён">Customer Stories</h2>
@@ -342,8 +205,7 @@
                     <p class="text-xs text-center truncate" data-ru="Инфо" data-uz="Ma'lumot" data-tj="Маълумот">info</p>
                 </div>
             </div>
-            
-            <div class="flex-none w-20 mx-1">
+            <div class="flex-none w-20 mx-1" id="addStoryContainer">
                 <div class="relative">
                     <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center p-0.5 mb-1 cursor-pointer relative">
                         <input type="file" accept="image/*,video/*" class="absolute inset-0 opacity-0 cursor-pointer" id="storyUpload">
@@ -357,7 +219,6 @@
         </div>
     </section>
 
-    <!-- Kengaytirilgan qidiruv qismi -->
     <div class="search-container">
         <div class="search-input-container">
             <input type="text" id="phoneSearch" class="search-input" placeholder="Search number" data-ru="Поиск номера" data-uz="Raqam qidirish" data-tj="Ҷустуҷӯи рақам">
@@ -365,15 +226,13 @@
         </div>
     </div>
 
-    <!-- Operator Collections -->
     <section class="mt-6 px-4">
         <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-semibold" data-ru="Премиум номера" data-uz="Premium raqamlar" data-tj="Рақамҳои премиум">Premium Numbers</h2>
             <button class="text-primary text-sm font-medium cursor-pointer" data-ru="Посмотреть все" data-uz="Hammasini ko'rish" data-tj="Ҳамаро дидан">View All</button>
         </div>
         <div class="flex flex-col gap-3">
-              <!-- Yota Card -->
-            <div class="operator-card yota-card bg-white rounded-lg shadow-sm border-t-4 p-4">
+              <div class="operator-card yota-card bg-white rounded-lg shadow-sm border-t-4 p-4">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
                         <div class="w-10 h-10 flex items-center justify-center bg-[#0077FF]/10 rounded-full mr-3">
@@ -396,7 +255,6 @@
                     <button class="add-to-cart-btn bg-[#0077FF] text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">В корзину</button>
                 </div>
             </div>
-            <!-- Beeline Card -->
             <div class="operator-card beeline-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
@@ -421,7 +279,6 @@
                     <button class="add-to-cart-btn bg-[#FFCC00] text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-            <!-- Tele2 Card -->
             <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
@@ -446,8 +303,7 @@
                     <button class="add-to-cart-btn bg-black text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-              <!-- Beeline Card -->
-            <div class="operator-card beeline-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
+              <div class="operator-card beeline-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
                         <div class="w-10 h-10 flex items-center justify-center bg-[#FFCC00]/10 rounded-full mr-3">
@@ -471,8 +327,7 @@
                     <button class="add-to-cart-btn bg-[#FFCC00] text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-              <!-- Tele2 Card -->
-            <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
+              <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
                         <div class="w-10 h-10 flex items-center justify-center bg-black/10 rounded-full mr-3">
@@ -496,7 +351,6 @@
                     <button class="add-to-cart-btn bg-black text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-            <!-- MTS Card -->
             <div class="operator-card mts-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
@@ -521,8 +375,7 @@
                     <button class="add-to-cart-btn bg-[#E30611] text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-                 <!-- Tele2 Card -->
-            <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
+                 <div class="operator-card tele2-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
                         <div class="w-10 h-10 flex items-center justify-center bg-black/10 rounded-full mr-3">
@@ -546,7 +399,6 @@
                     <button class="add-to-cart-btn bg-black text-white px-4 py-2 !rounded-button cursor-pointer" data-ru="В корзину" data-uz="Savatga" data-tj="Ба корзина">Savatga</button>
                 </div>
             </div>
-            <!-- Megafon Card -->
             <div class="operator-card megafon-card bg-white rounded-lg shadow-sm border-t-4 p-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
@@ -577,7 +429,6 @@
         </div>
     </section>
 
-    <!-- Special Offer Card -->
     <div class="operator-card bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg shadow-sm p-3 cursor-pointer">
         <div class="flex items-center mb-2">
             <div class="w-8 h-8 flex items-center justify-center bg-white/80 rounded-full mr-2">
@@ -592,7 +443,6 @@
         </div>
     </div>
 
-    <!-- Featured Story -->
     <div class="contanerrrr">
         <div class="mt-3 bg-white rounded-lg shadow-sm p-4">
             <div class="flex items-center mb-3">
@@ -616,7 +466,6 @@
         </div>
     </div>
 
-    <!-- Contact Options -->
     <section class="mt-6 px-4">
         <h2 class="text-lg font-semibold mb-4" data-ru="Свяжитесь с нами" data-uz="Biz bilan bog'laning" data-tj="Бо мо тамос гиред">Contact Us</h2>
         <div class="grid grid-cols-2 gap-3 mb-4">
@@ -652,7 +501,6 @@
         </div>
     </section>
 
-    <!-- Location Section -->
     <section class="mt-6 px-4">
         <h2 class="text-lg font-semibold mb-4" data-ru="Посетите наш магазин" data-uz="Do'konimizga tashrif buyuring" data-tj="Ба мағозаи мо ташриф оред">Visit Our Store</h2>
         <div class="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -694,7 +542,6 @@
         </div>
     </section>
 
-    <!-- Tab Bar -->
     <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
         <div class="grid grid-cols-5 h-16">
             <a href="./index.html" class="flex flex-col items-center justify-center text-primary cursor-pointer active">
@@ -734,7 +581,6 @@
         </div>
     </nav>
 
-    <!-- Savat Modal Oynasi -->
     <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-60 z-[100] hidden items-center justify-center transition-opacity duration-300">
         <div id="cartModalContent" class="bg-gray-50 rounded-xl shadow-2xl w-full max-w-lg m-4 transform transition-transform duration-300 scale-95 opacity-0">
             <div class="flex items-center justify-between p-4 border-b bg-white rounded-t-xl">
@@ -754,13 +600,12 @@
                         <p class="mt-2 text-gray-500" data-ru="Ваша корзина пуста" data-uz="Sizning savatingiz bo'sh" data-tj="Сабади шумо холӣ аст">Sizning savatingiz bo'sh</p>
                     </div>
                 </div>
-                <form id="customerForm">
+                <form id="customerForm" style="display: none;">
                     <h4 class="font-semibold text-gray-700 pt-4 border-t" data-ru="Данные для доставки:" data-uz="Yetkazib berish uchun ma'lumot:" data-tj="Маълумот барои таҳвил:">Yetkazib berish uchun ma'lumot:</h4> 
                   <img  class="rara" src="./img/free-icon-delivery-7910028 (1) 1 (1).svg "  alt="">
-<div class="las">
-                            <h4 class="font-bold" > Даставка Бесплатная</h4>
-
-</div>                   
+                    <div class="las">
+                        <h4 class="font-bold" > Даставка Бесплатная</h4>
+                    </div>                   
                     <div class="mt-4 grid grid-cols-1 gap-4">
                         <div>
                             <label for="customerName" class="text-sm font-medium text-gray-600" data-ru="Ваше имя" data-uz="Ismingiz" data-tj="Номи шумо">Ismingiz</label>
@@ -790,7 +635,6 @@
         </div>
     </div>
 
-    <!-- Emergency Hotline Button -->
     <div class="fixed bottom-20 right-4 z-40">
         <a href="tel:+79961956666" id="hotlineBtn" class="relative group">
             <div class="absolute -inset-2 bg-red-500 rounded-full opacity-75 group-hover:opacity-100 blur transition-opacity"></div>
@@ -801,8 +645,8 @@
         </a>
     </div>
 
-    <!-- Scripts -->
     <script>
+        // Barcha JavaScript kodlari bitta joyga yig'ildi va to'g'irlandi
         document.addEventListener('DOMContentLoaded', () => {
             // Asosiy elementlar
             const searchInput = document.getElementById('phoneSearch');
@@ -817,13 +661,14 @@
             const emptyCartMessage = document.getElementById('emptyCartMessage');
             const customerForm = document.getElementById('customerForm');
             const cartTotalEl = document.getElementById('cartTotal');
-            const sendOrderBtn = document.getElementById('sendOrderBtn');
-            const whatsAppNumber = '79961956666';
+            const whatsAppNumber = '79961956666'; // WhatsApp raqamingiz
+            
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let visibleCards = 7;
             const cardsPerPage = 7;
 
-            // Savatni ochish/yopish
+            // --- SAVAT (CART) FUNKSIYALARI ---
+
             const toggleCartModal = (show) => {
                 if (show) {
                     cartModal.classList.remove('hidden');
@@ -838,15 +683,14 @@
                 }
             };
 
-            // Savatni render qilish
             const renderCart = () => {
                 cartItemsContainer.innerHTML = '';
                 if (cart.length === 0) {
                     emptyCartMessage.style.display = 'block';
-                    if (customerForm) customerForm.style.display = 'none';
+                    customerForm.style.display = 'none';
                 } else {
                     emptyCartMessage.style.display = 'none';
-                    if (customerForm) customerForm.style.display = 'block';
+                    customerForm.style.display = 'block';
                     cart.forEach(item => {
                         const itemHTML = `
                             <div class="cart-item">
@@ -881,7 +725,6 @@
                 });
             };
 
-            // Savat ikonkasidagi sonni yangilash
             const updateCartBadge = () => {
                 document.querySelectorAll('.cart-badge').forEach(b => b.remove());
                 if (cart.length > 0) {
@@ -897,7 +740,6 @@
                 }
             };
 
-            // Savatga qo'shish tugmasi
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -905,6 +747,7 @@
                     const nameEl = card.querySelector('.font-medium');
                     const numberEl = card.querySelector('.bg-gray-50 p.text-xl');
                     const priceEl = card.querySelector('.text-sm.font-bold');
+                    
                     const item = {
                         id: numberEl.innerText.trim(),
                         name: nameEl.innerText.trim(),
@@ -912,35 +755,23 @@
                         price: priceEl.innerText.trim(),
                         color: window.getComputedStyle(card).borderTopColor
                     };
+
                     if (!cart.some(cartItem => cartItem.id === item.id)) {
-                                                cart.push(item);
+                        cart.push(item);
                         localStorage.setItem('cart', JSON.stringify(cart));
                         renderCart();
-                        const toast = document.createElement('div');
-                        toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
-                        toast.textContent = 'Savatga qo\'shildi!';
-document.body.appendChild(toast);
-                        setTimeout(() => document.body.removeChild(toast), 2000);
+                        showToast('Savatga qo\'shildi!', 'success');
                     } else {
-                        const toast = document.createElement('div');
-                        toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
-                        toast.textContent = 'Bu raqam allaqachon savatda!';
-                        document.body.appendChild(toast);
-                        setTimeout(() => document.body.removeChild(toast), 2000);
+                        showToast('Bu raqam allaqachon savatda!', 'warning');
                     }
                 });
             });
 
-            // Buyurtmani WhatsApp'ga yuborish
             if (customerForm) {
                 customerForm.addEventListener('submit', (e) => {
                     e.preventDefault();
                     if (cart.length === 0) {
-                        const toast = document.createElement('div');
-                        toast.className = 'fixed top-16 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
-                        toast.textContent = 'Savat bo\'sh!';
-                        document.body.appendChild(toast);
-                        setTimeout(() => document.body.removeChild(toast), 2000);
+                        showToast('Savat bo\'sh!', 'error');
                         return;
                     }
                     const name = document.getElementById('customerName').value;
@@ -957,6 +788,7 @@ document.body.appendChild(toast);
                     message += `\n*Общий:* ${cartTotalEl.innerText}`;
                     const whatsappURL = `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappURL, '_blank');
+                    
                     cart = [];
                     localStorage.setItem('cart', JSON.stringify(cart));
                     renderCart();
@@ -965,7 +797,6 @@ document.body.appendChild(toast);
                 });
             }
 
-            // Savatni ochish/yopish uchun voqea tinglovchilari
             if (openCartBtn) openCartBtn.addEventListener('click', () => toggleCartModal(true));
             if (openCartTab) openCartTab.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -973,12 +804,11 @@ document.body.appendChild(toast);
             });
             if (closeCartBtn) closeCartBtn.addEventListener('click', () => toggleCartModal(false));
             if (cartModal) cartModal.addEventListener('click', (e) => {
-                if (e.target === cartModal) {
-                    toggleCartModal(false);
-                }
+                if (e.target === cartModal) toggleCartModal(false);
             });
 
-            // Ko'proq ko'rsatish tugmasi
+            // --- KARTALARNI KO'RSATISH VA QIDIRUV ---
+
             const updateVisibleCards = () => {
                 operatorCards.forEach((card, index) => {
                     card.style.display = index < visibleCards || searchInput.value.trim() !== '' ? 'block' : 'none';
@@ -995,7 +825,6 @@ document.body.appendChild(toast);
                 });
             }
 
-            // Qidiruv funksiyasi
             if (searchInput) {
                 searchInput.addEventListener('input', () => {
                     const searchValue = searchInput.value.trim().replace(/\D/g, '');
@@ -1006,17 +835,22 @@ document.body.appendChild(toast);
                             card.style.display = (searchValue === '' || phoneNumber.includes(searchValue)) ? 'block' : 'none';
                         }
                     });
-                    if (searchInput.value.trim() === '') updateVisibleCards();
+                    if (searchInput.value.trim() === '') {
+                         updateVisibleCards();
+                    } else {
+                         if (showMoreBtn) showMoreBtn.style.display = 'none';
+                    }
                 });
             }
 
-            // Tilni o'zgartirish
+            // --- TIL O'ZGARTIRISH ---
+
             window.setLanguage = (lang) => {
                 document.documentElement.lang = lang;
                 document.querySelectorAll('[data-ru], [data-uz], [data-tj]').forEach(element => {
                     const attr = `data-${lang}`;
                     if (element.hasAttribute(attr)) {
-                        const prop = element.placeholder !== undefined ? 'placeholder' : 'textContent';
+                        const prop = typeof element.placeholder !== 'undefined' ? 'placeholder' : 'textContent';
                         element[prop] = element.getAttribute(attr);
                     }
                 });
@@ -1024,88 +858,98 @@ document.body.appendChild(toast);
                 renderCart(); // Savatni til o'zgarishida yangilash
             };
 
-            // Saqlangan tilni yuklash
             const savedLang = localStorage.getItem('preferredLanguage') || 'ru';
             window.setLanguage(savedLang);
-
-            // Hikoyalar funksiyasi
-            const storyCircles = document.querySelectorAll('.story-container .rounded-full');
+            
+            // --- HIKOYALAR (STORIES) FUNKSIYALARI ---
             const storyUpload = document.getElementById('storyUpload');
+            const STORY_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 soat
+
+            let userStories = JSON.parse(localStorage.getItem('userStories')) || [];
 
             function createFullscreenViewer(mediaUrl, isVideo) {
                 const viewer = document.createElement('div');
-                viewer.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center';
-                const closeBtn = document.createElement('button');
-                closeBtn.className = 'absolute top-4 right-4 text-white z-50 w-10 h-10 flex items-center justify-center';
-                closeBtn.innerHTML = '<i class="ri-close-line ri-2x"></i>';
-
-                const mediaElement = isVideo
-                    ? document.createElement('video')
-                    : document.createElement('img');
-                mediaElement.className = 'max-w-full max-h-full object-contain';
-                mediaElement.src = mediaUrl;
-                if (isVideo) {
-                    mediaElement.controls = true;
-                    mediaElement.autoplay = true;
-                }
-
-                viewer.appendChild(mediaElement);
-                viewer.appendChild(closeBtn);
-                document.body.appendChild(viewer);
-
-                closeBtn.addEventListener('click', () => {
-                    document.body.removeChild(viewer);
-                });
-
-                viewer.addEventListener('click', (e) => {
-                    if (e.target === viewer) {
-                        document.body.removeChild(viewer);
+                viewer.className = 'fixed inset-0 bg-black z-[200] flex items-center justify-center';
+                viewer.innerHTML = `
+                    <button class="absolute top-4 right-4 text-white z-50 w-10 h-10 flex items-center justify-center">
+                        <i class="ri-close-line ri-2x"></i>
+                    </button>
+                    ${isVideo ? 
+                        `<video class="max-w-full max-h-full object-contain" src="${mediaUrl}" controls autoplay loop></video>` :
+                        `<img class="max-w-full max-h-full object-contain" src="${mediaUrl}">`
                     }
+                `;
+                document.body.appendChild(viewer);
+                viewer.querySelector('button').addEventListener('click', () => document.body.removeChild(viewer));
+                viewer.addEventListener('click', (e) => {
+                    if (e.target === viewer) document.body.removeChild(viewer);
                 });
             }
 
-            // Hikoyalarni ko'rish
-            storyCircles.forEach(circle => {
-                circle.addEventListener('click', () => {
-                    const img = circle.querySelector('img');
-                    if (img) {
-                        createFullscreenViewer(img.src, false);
-                    }
-                });
-            });
+            const renderUserStories = () => {
+                const storyContainer = document.querySelector('.story-container');
+                // Eski dinamik hikoyalarni o'chirish
+                document.querySelectorAll('.user-story-item').forEach(story => story.remove());
 
-            // Hikoya yuklash
+                // Muddati o'tmagan hikoyalarni filtrlash
+                const now = Date.now();
+                userStories = userStories.filter(story => (now - story.timestamp) < STORY_EXPIRY_TIME);
+                localStorage.setItem('userStories', JSON.stringify(userStories));
+                
+                const addStoryBtn = document.getElementById('addStoryContainer');
+                userStories.forEach(story => {
+                    const newStory = document.createElement('div');
+                    newStory.className = 'flex-none w-20 mx-1 user-story-item'; // o'chirish uchun maxsus klass
+                    newStory.innerHTML = `
+                        <div class="relative">
+                            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1 cursor-pointer">
+                                <${story.isVideo ? 'video' : 'img'} src="${story.url}" alt="User Story" class="w-full h-full object-cover rounded-full"></${story.isVideo ? 'video' : 'img'}>
+                            </div>
+                            <p class="text-xs text-center truncate">${story.name}</p>
+                        </div>
+                    `;
+                    storyContainer.insertBefore(newStory, addStoryBtn);
+                    newStory.addEventListener('click', () => createFullscreenViewer(story.url, story.isVideo));
+                });
+            };
+
             if (storyUpload) {
                 storyUpload.addEventListener('change', (e) => {
                     const file = e.target.files[0];
                     if (file) {
                         const isVideo = file.type.startsWith('video/');
                         const url = URL.createObjectURL(file);
-                        createFullscreenViewer(url, isVideo);
+                        const storyName = file.name.split('.')[0].substring(0, 10); // Fayl nomini qisqartirish
 
-                        // Yangi hikoyani story konteyneriga qo'shish
-                        const storyContainer = document.querySelector('.story-container');
-                        const newStory = document.createElement('div');
-                        newStory.className = 'flex-none w-20 mx-1';
-                        newStory.innerHTML = `
-                            <div class="relative">
-                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary p-0.5 mb-1">
-                                    <img src="${url}" alt="User Story" class="w-full h-full object-cover rounded-full">
-                                </div>
-                                <p class="text-xs text-center truncate">New Story</p>
-                            </div>
-                        `;
-                        storyContainer.insertBefore(newStory, storyContainer.lastElementChild);
-                        newStory.querySelector('img').addEventListener('click', () => {
-                            createFullscreenViewer(url, isVideo);
-                        });
+                        userStories.push({ url, isVideo, timestamp: Date.now(), name: storyName });
+                        localStorage.setItem('userStories', JSON.stringify(userStories));
+                        
+                        renderUserStories();
+                        createFullscreenViewer(url, isVideo);
                     }
                 });
             }
+            
+            // --- YORDAMCHI FUNKSIYALAR ---
+            
+            function showToast(message, type = 'info') {
+                const colors = {
+                    success: 'bg-green-500',
+                    warning: 'bg-yellow-500',
+                    error: 'bg-red-500',
+                    info: 'bg-blue-500'
+                };
+                const toast = document.createElement('div');
+                toast.className = `fixed top-20 left-1/2 transform -translate-x-1/2 text-white px-6 py-3 rounded-lg shadow-lg z-[200] ${colors[type]}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => document.body.removeChild(toast), 3000);
+            }
 
-            // Sahifa yuklanganda savatni yangilash
+            // --- BOSHLANG'ICH YUKLASH ---
             updateVisibleCards();
             renderCart();
+            renderUserStories();
         });
     </script>
 </body>
